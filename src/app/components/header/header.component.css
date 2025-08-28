@@ -1,0 +1,58 @@
+.navbar {
+  background-color: rgba(15, 23, 42, 0.85); /* Transparent dark navy */
+  backdrop-filter: saturate(180%) blur(10px);
+  background: transparent;
+  transition: background-color 0.3s ease;
+  z-index: 1030;  
+  border-radius: 30px;
+}
+
+
+
+nav{
+  top:20px;
+  left: 50px;
+  right:100px;
+}
+
+.navbar-brand {
+  letter-spacing: 2px;
+}
+
+
+
+a:hover{
+  text-decoration: none;
+}
+
+.nav-link {
+  position: relative;
+  color: #e0e7ff;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #6366f1; /* Indigo-500 */
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #a5b4fc;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 100%;
+}
+
+.navbar-toggler {
+  filter: invert(1); /* white toggler icon for dark bg */
+}

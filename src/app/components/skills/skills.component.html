@@ -1,0 +1,30 @@
+<section id="skills" class="skills container py-5">
+  <h2 class="mb-5 text-center display-4 fw-bold text-gradient">✨ My Skills & Technologies</h2>
+
+  <div class="skills-list">
+    <div class="skill-item" *ngFor="let skill of skills">
+      <!-- Left Icon -->
+      <div class="skill-icon left">
+        <i [class]="skill.leftIcon"></i>
+      </div>
+
+      <!-- Skill Name + Progress -->
+      <div class="skill-details">
+        <h5 class="fw-semibold">{{ skill.name }}</h5>
+        <div class="progress skill-progress">
+          <div class="progress-bar"
+               role="progressbar"
+               [attr.data-progress]="skill.level"
+               aria-valuemin="0" aria-valuemax="100">
+            {{ skill.level }}%
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Icon -->
+      <div class="skill-icon right">
+        <i [class]="skill.rightIcon"></i>
+      </div>
+    </div>
+  </div>
+</section>

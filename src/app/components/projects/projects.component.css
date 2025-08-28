@@ -1,0 +1,52 @@
+.project-card {
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  background: #1f2937; /* Dark slate background */
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(52, 152, 219, 0.4); /* Blue glow */
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.project-image {
+  height: 180px;
+  object-fit: cover;
+  filter: brightness(90%);
+  transition: filter 0.3s ease;
+  border-bottom: 3px solid #3498db;
+}
+
+.project-image:hover {
+  filter: brightness(100%);
+}
+
+.card-title {
+  font-size: 1.25rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.btn-outline-primary {
+  border-color: #3498db;
+  color: #3498db;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #3498db;
+  color: white;
+}
+h2{
+  font-weight: 900;
+  font-size: 80px;
+  color: rgb(49, 177, 209);
+}

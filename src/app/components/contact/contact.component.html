@@ -1,0 +1,83 @@
+<section id="contact" class="contact d-flex justify-content-center align-items-center py-5" style="min-height: 70vh;">
+  <div class="card bg-transparent border-0 p-0" style="max-width: 900px; width: 100%;">
+    <div class="row g-0 shadow-lg rounded-4 overflow-hidden">
+      <!-- Form Column -->
+      <div class="col-md-6 p-5 bg-white">
+        <h2 class="mb-4 fw-bold text-dark">Contact Me</h2>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              formControlName="name"
+              class="form-control"
+              id="name"
+              placeholder="Your Name"
+              [class.is-invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+            />
+            <label for="name">Your Name</label>
+            <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="invalid-feedback">
+              Name is required.
+            </div>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              formControlName="email"
+              class="form-control"
+              id="email"
+              placeholder="Your Email"
+              [class.is-invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+            />
+            <label for="email">Your Email</label>
+            <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="invalid-feedback">
+              <span *ngIf="contactForm.get('email')?.errors?.['required']">Email is required.</span>
+              <span *ngIf="contactForm.get('email')?.errors?.['email']">Please enter a valid email address.</span>
+            </div>
+          </div>
+
+          <div class="form-floating mb-4">
+            <textarea
+              formControlName="message"
+              class="form-control"
+              placeholder="Your Message"
+              id="message"
+              style="height: 140px;"
+              [class.is-invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+            ></textarea>
+            <label for="message">Your Message</label>
+            <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="invalid-feedback">
+              Message is required.
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg w-100" [disabled]="contactForm.invalid">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Info Column -->
+      <div class="col-md-6 p-5 bg-dark text-white">
+        <h4>Get In Touch</h4>
+        <p>Feel free to reach out for collaborations, projects, or just to say hello!</p>
+        <ul class="list-unstyled fs-5">
+          <li class="mb-4 d-flex align-items-center">
+            <i class="bi bi-geo-alt-fill fs-3 me-3"></i>
+            <span>4-98,Mundlamurivari Palem,Prakasam</span>
+          </li>
+          <li class="mb-4 d-flex align-items-center">
+            <i class="bi bi-telephone-fill fs-3 me-3"></i>
+            <span>+91 8309272698</span>
+          </li>
+          <li class="mb-4 d-flex align-items-center">
+            <i class="bi bi-envelope-fill fs-3 me-3"></i>
+            <span>pramodputta24@gmail.com</span>
+          </li>
+          <li class="d-flex align-items-center">
+            <i class="bi bi-clock-fill fs-3 me-3"></i>
+            <span>Mon – Fri: 9am – 6pm</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

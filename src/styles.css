@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.css */
+
+/* Variables */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --text-color: #333;
+  --bg-color: #f5f6fa;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Typography */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-color);
+  background: linear-gradient(135deg, rgba(94, 160, 160, 0.8), rgba(77, 69, 169, 0.482));
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 0.5rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+/* Utility */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #1e272e;
+  color: #d2dae2;
+}
+
