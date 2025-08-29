@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import * as AOS from 'aos';
 
 interface Project {
   title: string;
@@ -16,7 +17,13 @@ interface Project {
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
+  ngOnInit() {
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  }
   projects: Project[] = [
     {
       title: 'Todo App',
@@ -27,4 +34,18 @@ export class ProjectsComponent {
     },
     // Add more projects here
   ];
+  lightboxOpen = false;
+  currentImg: string | null = null;
+
+  openLightbox(imgUrl: string): void {
+    this.currentImg = imgUrl;
+    this.lightboxOpen = true;
+  }
+
+  closeLightbox(): void {
+    this.lightboxOpen = false;
+    this.currentImg = null;
+  }
+
+  
 }

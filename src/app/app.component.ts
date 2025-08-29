@@ -11,11 +11,12 @@ import { HeroComponent } from "./components/hero/hero.component";
 import { ProjectsComponent } from "./components/projects/projects.component";
 import { SkillsComponent } from "./components/skills/skills.component";
 import { ContactComponent } from "./components/contact/contact.component";
+import { AchievmentsComponent } from "./components/achievments/achievments.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ HeaderComponent, FooterComponent, CommonModule, AboutComponent, HeroComponent, ProjectsComponent, SkillsComponent, ContactComponent],
+  imports: [HeaderComponent, FooterComponent, CommonModule, AboutComponent, HeroComponent, ProjectsComponent, SkillsComponent, ContactComponent, AchievmentsComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

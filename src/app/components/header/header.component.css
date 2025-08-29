@@ -1,10 +1,10 @@
-.navbar {
-  background-color: rgba(15, 23, 42, 0.85); /* Transparent dark navy */
+.navbar { /* Transparent dark navy */
   backdrop-filter: saturate(180%) blur(10px);
   background: transparent;
   transition: background-color 0.3s ease;
-  z-index: 1030;  
+  line-height: 1px;
   border-radius: 30px;
+  min-height:max-content;
 }
 
 
@@ -12,13 +12,12 @@
 nav{
   top:20px;
   left: 50px;
-  right:100px;
+  right:50px;
 }
 
 .navbar-brand {
   letter-spacing: 2px;
 }
-
 
 
 a:hover{
@@ -35,7 +34,7 @@ a:hover{
   content: '';
   position: absolute;
   width: 0%;
-  height: 2px;
+  height: 1px;
   bottom: -4px;
   left: 0;
   background-color: #6366f1; /* Indigo-500 */

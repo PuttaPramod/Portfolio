@@ -1,0 +1,94 @@
+/* Section Title */
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #ddd;
+  margin-bottom: 2rem;
+}
+
+/* Certificate Card */
+.cert-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.cert-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* Image */
+.cert-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.cert-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.cert-card:hover .cert-image {
+  transform: scale(1.1);
+}
+
+/* Info */
+.cert-info {
+  text-align: center;
+}
+
+.cert-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffd369;
+}
+
+.cert-issuer {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.cert-date {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+/* Lightbox overlay covering the entire viewport */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8); /* semi-transparent black */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;            /* above most other elements */
+  cursor: zoom-out;         /* indicate click to close */
+}
+
+/* The enlarged image inside the overlay */
+.lightbox-img {
+  max-width: 90%;           /* leave some margin around */
+  max-height: 90%;          /* prevent overflow */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  object-fit: contain;      /* maintain image aspect ratio */
+}
+

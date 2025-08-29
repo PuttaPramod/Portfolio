@@ -1,0 +1,40 @@
+<section class="certificates-section py-5" id="certificates">
+  <div class="container">
+    <!-- Section Heading -->
+    <div class="row mb-4 text-center">
+      <div class="col-12">
+        <h2 class="section-title" data-aos="fade-down">🎓 My Certificates</h2>
+        <p class="section-subtitle" data-aos="fade-up">Professional credentials & skills</p>
+      </div>
+    </div>
+
+    <!-- Certificates Grid -->
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" *ngFor="let cert of certificates; let i = index">
+        <div class="cert-card" data-aos="zoom-in" [attr.data-aos-delay]="i * 150">
+          <div class="cert-image-wrapper">
+            <img
+  [src]="cert.img"
+  [alt]="cert.title"
+  class="cert-image"
+  (click)="openLightbox(cert.img)"
+  style="cursor:pointer; object-fit:cover;"
+/>
+          </div>
+          <div class="cert-info p-3">
+            <h5 class="cert-title">{{ cert.title }}</h5>
+            <p  style="font-weight: 200;color: blueviolet;font-family: cursive;" class="cert-issuer">{{ cert.issuer }}</p>
+            <p style="font-size: 20px;font-weight: bold;color: rgb(224, 23, 67);font-family: 'Times New Roman', Times, serif;" class="cert-date">{{ cert.date }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="lightbox-overlay"
+    *ngIf="lightboxOpen"
+    (click)="closeLightbox()"
+  >
+    <img [src]="currentImg" alt="Certificate" class="lightbox-img" style="justify-content: center;"/>
+  </div>
+</section>

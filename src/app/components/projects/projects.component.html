@@ -1,57 +1,62 @@
-<section id="projects" class="projects container py-5">
-  <h2 class="mb-5 text-center display-5">Featured Projects</h2>
-  <div class="row g-4">
-    
-    <!-- Card 1 -->
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm project-card">
-        <img src="assets/csp.png" class="card-img-top project-image" alt="Project One" />
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title text-primary fw-semibold">Project One</h5>
-          <p class="card-text flex-grow-1 text-light">
-            A todo app built with Angular and Firebase featuring realtime synchronization and offline support.
-          </p>
-          <div class="mt-4">
-            <a href="https://example.com/project1" target="_blank" class="btn btn-outline-primary btn-sm me-2">Live Demo</a>
-            <a href="https://github.com/yourname/project1" target="_blank" class="btn btn-primary btn-sm">Source Code</a>
-          </div>
+<!-- projects.component.html -->
+<section id="projects" class="projects-section container py-5">
+  <h2 class="section-title" data-aos="fade-down">🚀 Featured Projects</h2>
+
+  <div class="projects-grid">
+    <!-- Project Card 1 -->
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+      <!-- Image wrapper with click-to-enlarge -->
+      <div class="project-img-wrapper" style="cursor: pointer;" (click)="openLightbox('assets/Guidex.png')">
+        <img src="assets/Guidex.png" alt="Guidex" class="project-img" />
+      </div>
+      <div class="project-content">
+        <h2>Guidex</h2>
+        <p style="font-weight: 900; color: beige;">
+          Awareness for 10th Grade Students for Choosing Their Stream/Interests using Angular Framework, TypeScript with responsive CSS Styles Used tools VS Code,GitHub.
+        </p>
+        <div class="btn-group">
+          <a href="https://example.com/project1" target="_blank" class="btn-glow" id="Guidex">Live Demo</a>
         </div>
       </div>
     </div>
 
-    <!-- Card 2 -->
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm project-card">
-        <img src="assets/portfolio.png" class="card-img-top project-image" alt="Project Two" />
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title text-primary fw-semibold">Project Two</h5>
-          <p class="card-text flex-grow-1 text-light">
-            An e-commerce website with Angular frontend, Node.js backend, and Stripe payment integration.
-          </p>
-          <div class="mt-4">
-            <a href="https://example.com/project2" target="_blank" class="btn btn-outline-primary btn-sm me-2">Live Demo</a>
-            <a href="https://github.com/yourname/project2" target="_blank" class="btn btn-primary btn-sm">Source Code</a>
-          </div>
+    <!-- Project Card 2 -->
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+      <div class="project-img-wrapper" style="cursor: pointer;" (click)="openLightbox('assets/portfolio.png')">
+        <img src="assets/portfolio.png" alt="Portfolio Website" class="project-img" />
+      </div>
+      <div class="project-content">
+        <h2>Portfolio Website</h2>
+        <p style="font-weight: 900; color: beige;">
+          A Portfolio Website using Angular Framework, TypeScript with responsive CSS Styles Used tools VS Code,GitHub.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;
+        </p>
+        <div class="btn-group">
+          <a href="https://pramodport.netlify.app/" target="_blank" class="btn-glow" id="port">Live Demo</a>
         </div>
       </div>
     </div>
 
-    <!-- Card 3 -->
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm project-card">
-        <img src="assets/todoapp.png" class="card-img-top project-image" alt="Project Three" />
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title text-primary fw-semibold">Project Three</h5>
-          <p class="card-text flex-grow-1 text-light">
-            A blogging platform with Angular Universal for SEO, Firebase authentication, and rich text editing.
-          </p>
-          <div class="mt-4">
-            <a href="https://example.com/project3" target="_blank" class="btn btn-outline-primary btn-sm me-2">Live Demo</a>
-            <a href="https://github.com/yourname/project3" target="_blank" class="btn btn-primary btn-sm">Source Code</a>
-          </div>
+    <!-- Project Card 3 -->
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+      <div class="project-img-wrapper" style="cursor: pointer;" (click)="openLightbox('assets/todoapp.png')">
+        <img src="assets/todoapp.png" alt="Blogging Platform" class="project-img" />
+      </div>
+      <div class="project-content">
+        <h2>Task Manager</h2>
+        <p style="font-weight: 900; color: beige;">
+          A TodoList website for add/remove tasks using Angular Framework, TypeScript with responsive CSS Styles Used tools VS Code,GitHub.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;
+        </p>
+        <div class="btn-group">
+          <a href="https://example.com/project3" target="_blank" class="btn-glow">Live Demo</a>
         </div>
       </div>
     </div>
+  </div>
 
+  <!-- Lightbox Overlay -->
+  <div class="lightbox-overlay" *ngIf="lightboxOpen" (click)="closeLightbox()">
+    <img [src]="currentImg" alt="Enlarged Project" class="lightbox-img" />
   </div>
 </section>
