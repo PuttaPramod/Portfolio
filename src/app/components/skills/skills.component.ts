@@ -12,7 +12,7 @@ export class SkillsComponent implements AfterViewInit {
     { name: 'Angular', level: 90, leftIcon: 'bi bi-lightning-charge-fill', rightIcon: 'bi bi-braces' },
     { name: 'CSS', level: 80, leftIcon: 'bi bi-palette-fill', rightIcon: 'bi bi-filetype-css' },
     { name: 'HTML', level: 95, leftIcon: 'bi bi-code-slash', rightIcon: 'bi bi-filetype-html' },
-    { name: 'JavaScript', level: 85, leftIcon: 'bi bi-lightbulb-fill', rightIcon: 'bi bi-braces-asterisk' }
+    { name: 'TypeScript', level: 85, leftIcon: 'bi bi-lightbulb-fill', rightIcon: 'bi bi-braces-asterisk' }
   ];
 
   constructor(private el: ElementRef) {}
