@@ -1,37 +1,44 @@
-.contact {
-  min-height: 70vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem 1rem;
+/* Gradient heading */
+.text-gradient {
+  background: linear-gradient(45deg, #0d6efd, #6610f2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.btn-primary {
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+/* Glass effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(15px);
+  transition: transform 0.3s ease-in-out;
+}
+.glass-effect:hover {
+  transform: translateY(-5px);
 }
 
-.btn-primary:hover {
-  background-color: #084298;
-  border-color: #084298;
+/* Gradient button */
+.btn-gradient {
+  background: linear-gradient(90deg, #0d6efd, #6610f2);
+  color: #fff;
+  border: none;
+  transition: 0.3s ease;
+}
+.btn-gradient:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
 }
 
-.form-control:focus {
-  border-color: #0d6efd;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+/* Fix: prevent resizing issue when focusing inputs */
+textarea {
+  resize: none !important;
 }
 
+/* Reserve space for error messages (prevents jumping) */
 .invalid-feedback {
-  font-size: 0.875rem;
+  min-height: 20px;
 }
 
-.bg-dark {
-  background-color: #1c222863 !important;
-  border-radius: 0 0.5rem 0.5rem 0;
-  height: 100%;
-}
-
-.bg-white {
-  border-radius: 0.5rem 0 0 0.5rem;
-  height: 100%;
+/* Smooth UX transitions */
+.form-control,
+.invalid-feedback {
+  transition: all 0.2s ease-in-out;
 }

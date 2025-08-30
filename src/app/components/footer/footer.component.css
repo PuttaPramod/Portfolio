@@ -1,7 +1,46 @@
-footer a:hover,
-footer a:focus {
-  color: #0d6efd; /* Bootstrap primary blue */
-  text-decoration: none;
-  transform: scale(1.2);
-  transition: transform 0.3s ease, color 0.3s ease;
+/* Background with gradient overlay */
+.footer-section {
+  background: linear-gradient(135deg, #0a0f1a, #1c1f2a);
+  position: relative;
+  overflow: hidden;
 }
+
+/* Gradient heading */
+.text-gradient {
+  background: linear-gradient(45deg, #0d6efd, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Footer Links */
+.footer-link {
+  color: #bbb;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.footer-link:hover {
+  color: #00d4ff;
+  transform: translateX(5px);
+}
+
+/* Social Icons */
+.social-link {
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.social-link:hover {
+  color: #0d6efd;
+  transform: rotate(10deg) scale(1.2);
+}
+
+/* Fade-in for bottom text */
+.fade-in {
+  animation: fadeIn 2s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+

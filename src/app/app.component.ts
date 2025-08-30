@@ -22,4 +22,7 @@ import { AchievmentsComponent } from "./components/achievments/achievments.compo
 })
 export class App {
   title = signal('portfolio');
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

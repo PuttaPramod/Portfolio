@@ -1,82 +1,80 @@
-<section id="contact" class="contact d-flex justify-content-center align-items-center py-5" style="min-height: 70vh;">
-  <div class="card bg-transparent border-0 p-0" style="max-width: 900px; width: 100%;">
-    <div class="row g-0 shadow-lg rounded-4 overflow-hidden">
-      <!-- Form Column -->
-      <div class="col-md-6 p-5 bg-white">
-        <h2 class="mb-4 fw-bold text-dark">Contact Me</h2>
-        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
-          <div class="form-floating mb-3">
-            <input
-              type="text"
-              formControlName="name"
-              class="form-control"
-              id="name"
-              placeholder="Your Name"
-              [class.is-invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
-            />
-            <label for="name">Your Name</label>
-            <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="invalid-feedback">
-              Name is required.
-            </div>
+<section id="contact" class="py-5 contact-section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="fw-bold display-5 text-gradient">Get in Touch</h2>
+      <p class="text-muted fs-5">I’d love to hear from you! Fill out the form below 🚀</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-lg rounded-4 glass-effect" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-body p-5">
+            <h4 class="fw-bold text-primary mb-4">
+              <i class="bi bi-envelope-paper-heart me-2"></i>Send a Message
+            </h4>
+
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="name"
+                      formControlName="name"
+                      class="form-control"
+                      placeholder="Your Name"
+                      [class.is-invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+                    />
+                    <label for="name">Your Name</label>
+                    <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="invalid-feedback">
+                      Name is required.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="email"
+                      id="email"
+                      formControlName="email"
+                      class="form-control"
+                      placeholder="Your Email"
+                      [class.is-invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+                    />
+                    <label for="email">Your Email</label>
+                    <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="invalid-feedback">
+                      <span *ngIf="contactForm.get('email')?.errors?.['required']">Email is required.</span>
+                      <span *ngIf="contactForm.get('email')?.errors?.['email']">Enter a valid email.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-floating mt-3">
+                <textarea
+                  id="message"
+                  formControlName="message"
+                  class="form-control"
+                  placeholder="Write your message"
+                  style="height: 150px"
+                  [class.is-invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+                ></textarea>
+                <label for="message">Your Message</label>
+                <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="invalid-feedback">
+                  Message is required.
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <button type="submit" class="btn btn-gradient btn-lg w-100" style="cursor: pointer;" [disabled]="contactForm.invalid" data-aos="zoom-in" data-aos-delay="400">
+                  <i class="bi bi-send-fill me-2"></i>Send Message
+                </button>
+              </div>
+            </form>
           </div>
-
-          <div class="form-floating mb-3">
-            <input
-              type="email"
-              formControlName="email"
-              class="form-control"
-              id="email"
-              placeholder="Your Email"
-              [class.is-invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
-            />
-            <label for="email">Your Email</label>
-            <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="invalid-feedback">
-              <span *ngIf="contactForm.get('email')?.errors?.['required']">Email is required.</span>
-              <span *ngIf="contactForm.get('email')?.errors?.['email']">Please enter a valid email address.</span>
-            </div>
-          </div>
-
-          <div class="form-floating mb-4">
-            <textarea
-              formControlName="message"
-              class="form-control"
-              placeholder="Your Message"
-              id="message"
-              style="height: 140px;"
-              [class.is-invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
-            ></textarea>
-            <label for="message">Your Message</label>
-            <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="invalid-feedback">
-              Message is required.
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-lg w-100" [disabled]="contactForm.invalid">Send Message</button>
-        </form>
-      </div>
-
-      <!-- Info Column -->
-      <div class="col-md-6 p-5 bg-dark text-white">
-        <h4>Get In Touch</h4>
-        <p>Feel free to reach out for collaborations, projects, or just to say hello!</p>
-        <ul class="list-unstyled fs-5">
-          <li class="mb-4 d-flex align-items-center">
-            <i class="bi bi-geo-alt-fill fs-3 me-3"></i>
-            <span>4-98,Mundlamurivari Palem,Prakasam</span>
-          </li>
-          <li class="mb-4 d-flex align-items-center">
-            <i class="bi bi-telephone-fill fs-3 me-3"></i>
-            <span>+91 8309272698</span>
-          </li>
-          <li class="mb-4 d-flex align-items-center">
-            <i class="bi bi-envelope-fill fs-3 me-3"></i>
-            <span>pramodputta24@gmail.com</span>
-          </li>
-          <li class="d-flex align-items-center">
-            <i class="bi bi-clock-fill fs-3 me-3"></i>
-            <span>Mon – Fri: 9am – 6pm</span>
-          </li>
-        </ul>
+        </div>
       </div>
     </div>
   </div>
