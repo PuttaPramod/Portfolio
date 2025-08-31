@@ -12,12 +12,16 @@
 
 <!-- AOS JS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-  AOS.init({
-    duration: 1000,   // animation duration
-    once: true,       // animation happens only once
+  document.addEventListener("DOMContentLoaded", function() {
+    AOS.init({
+      duration: 1000,   // animation duration
+      once: true        // whether animation should happen only once
+    });
   });
 </script>
+
 
 </head>
 <body>

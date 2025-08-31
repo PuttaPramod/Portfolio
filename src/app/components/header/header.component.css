@@ -1,104 +1,42 @@
-.navbar { /* Transparent dark navy */
-  backdrop-filter: saturate(180%) blur(10px);
-  background: transparent;
-  transition: background-color 0.3s ease;
-  border-radius: 30px;
-  min-height:max-content;
-  line-height: 10px;
+.glass-link {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 0.4rem 1rem !important;
+  transition: all 0.3s ease;
 }
 
+/* Hover effect */
+.glass-link:hover {
+  background: rgba(0, 255, 200, 0.15);
+  color: #110ae2 !important;
+  border-color: rgba(0,255,200,0.5);
+}
 
+/* Brand gradient shine */
 .logo-shine {
-  font-size: 1.9rem;
-  font-weight: 700;
-  font-family:'Times New Roman', Times, serif;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  background: linear-gradient(90deg, #d81157, #6d0ee1, #d8c00b);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 0.4rem 1rem;
+  font-family: 'Times New Roman', Times, serif;
+  background: linear-gradient(90deg,#d81157, #6d0ee1, #d8c00b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  display: inline-block;
-  transition: transform 0.4s ease;
+  animation: shine 3s linear infinite;
 }
-
-/* Hover zoom */
-.logo-shine:hover {
-  transform: scale(1.08);
-}
-
-/* Shine effect */
-.logo-shine::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0.7) 50%,
-    rgba(255, 255, 255, 0.3) 100%
-  );
-  transform: skewX(-20deg);
-}
-
-/* Animate shine on hover */
-.logo-shine:hover::after {
-  animation: shine 1s forwards;
-}
-
 @keyframes shine {
-  0% { left: -75%; }
-  100% { left: 125%; }
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
 }
 
-
-
-nav{
-  top:20px;
-  left: 50px;
-  right:50px;
-}
-
-
-
-
-a:hover{
-  text-decoration: none;
-}
-
-.nav-link {
-  position: relative;
-  color: #e0e7ff;
-  transition: color 0.3s ease;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 3px;
-  bottom: -10px;
-  left: 0;
-  background-color: #ee8803; /* Indigo-500 */
-  transition: width 0.3s ease;
-  border-radius: 2px;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  color: #0eeb28;
-}
-
-.nav-link:hover::after,
-.nav-link:focus::after {
-  width: 100%;
-}
-
-.navbar-toggler {
-  filter: invert(1); /* white toggler icon for dark bg */
+/* Responsive tweaks */
+@media (max-width: 991px) {
+  .glass-link {
+    display: block;
+    text-align: center;
+    margin: 0.4rem auto;
+  }
 }
