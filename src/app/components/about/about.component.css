@@ -12,14 +12,12 @@
   gap: 50px;
   margin-bottom: 60px;
 }
-.profile-wrapper { flex: 1; text-align: center; }
+.profile-wrapper {  text-align: center; }
 .profile-image {
-  width: 300px; height: 300px;
+  width: 400px; height: 400px;
   border-radius: 50%;
   margin-left: 100px;
-  background: url('/assets/profile.jpg') center/cover no-repeat;
-  box-shadow: 0 50px 50px rgba(0,0,0,0.15);
-  animation: float 3s ease-in-out infinite;
+  background: url('/assets/logo.ico') center/cover no-repeat;
 }
 .intro-wrapper { flex: 2; }
 

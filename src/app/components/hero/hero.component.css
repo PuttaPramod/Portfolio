@@ -12,6 +12,25 @@
   padding: 0 1rem;
 }
 
+.hero-new {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.hero-new::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(to bottom, rgba(21, 175, 175, 0), rgba(22, 45, 174, 0.45) 95%);
+  pointer-events: none;
+  z-index: 2;
+}
+
 /* Text Container */
 .hero-text {
   max-width: 700px;
