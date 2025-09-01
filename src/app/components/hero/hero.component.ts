@@ -7,4 +7,6 @@ import { RouterModule } from '@angular/router';
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.css']
 })
-export class HeroComponent { }
+export class HeroComponent {
+  
+ }
