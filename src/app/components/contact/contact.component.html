@@ -1,3 +1,4 @@
+<!-- src/app/components/contact/contact.component.html -->
 <section id="contact" class="py-5 contact-section">
   <div class="container">
     <!-- Section Header -->
@@ -14,6 +15,11 @@
               <i class="bi bi-envelope-paper-heart me-2"></i>Send a Message
             </h4>
 
+            <!-- Success/Error Alert -->
+            <div *ngIf="isSubmitted" class="alert alert-success">
+              {{ submitMessage }}
+            </div>
+
             <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
               <div class="row g-3">
                 <div class="col-md-6">
@@ -24,11 +30,12 @@
                       formControlName="name"
                       class="form-control"
                       placeholder="Your Name"
-                      [class.is-invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+                      [class.is-invalid]="name?.invalid && name?.touched"
                     />
                     <label for="name">Your Name</label>
-                    <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="invalid-feedback">
-                      Name is required.
+                    <div *ngIf="name?.invalid && name?.touched" class="invalid-feedback">
+                      <span *ngIf="name?.errors?.['required']">Name is required.</span>
+                      <span *ngIf="name?.errors?.['minlength']">Name must be at least 2 characters.</span>
                     </div>
                   </div>
                 </div>
@@ -41,12 +48,12 @@
                       formControlName="email"
                       class="form-control"
                       placeholder="Your Email"
-                      [class.is-invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+                      [class.is-invalid]="email?.invalid && email?.touched"
                     />
                     <label for="email">Your Email</label>
-                    <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="invalid-feedback">
-                      <span *ngIf="contactForm.get('email')?.errors?.['required']">Email is required.</span>
-                      <span *ngIf="contactForm.get('email')?.errors?.['email']">Enter a valid email.</span>
+                    <div *ngIf="email?.invalid && email?.touched" class="invalid-feedback">
+                      <span *ngIf="email?.errors?.['required']">Email is required.</span>
+                      <span *ngIf="email?.errors?.['email']">Enter a valid email.</span>
                     </div>
                   </div>
                 </div>
@@ -59,17 +66,29 @@
                   class="form-control"
                   placeholder="Write your message"
                   style="height: 150px"
-                  [class.is-invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+                  [class.is-invalid]="message?.invalid && message?.touched"
                 ></textarea>
                 <label for="message">Your Message</label>
-                <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="invalid-feedback">
-                  Message is required.
+                <div *ngIf="message?.invalid && message?.touched" class="invalid-feedback">
+                  <span *ngIf="message?.errors?.['required']">Message is required.</span>
+                  <span *ngIf="message?.errors?.['minlength']">Message must be at least 10 characters.</span>
                 </div>
               </div>
 
               <div class="mt-4">
-                <button type="submit" class="btn btn-gradient btn-lg w-100" style="cursor: pointer;" [disabled]="contactForm.invalid" data-aos="zoom-in" data-aos-delay="400">
-                  <i class="bi bi-send-fill me-2"></i>Send Message
+                <button
+                  type="submit"
+                  class="btn btn-gradient btn-lg w-100"
+                  [disabled]="isSubmitting"
+                  data-aos="zoom-in"
+                  data-aos-delay="400"
+                >
+                  <ng-container *ngIf="!isSubmitting">
+                    <i class="bi bi-send-fill me-2"></i>Send Message
+                  </ng-container>
+                  <ng-container *ngIf="isSubmitting">
+                    <span class="spinner-border spinner-border-sm me-2"></span>Sending...
+                  </ng-container>
                 </button>
               </div>
             </form>
