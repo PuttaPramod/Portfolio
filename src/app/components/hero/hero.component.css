@@ -12,6 +12,11 @@
   padding: 0 1rem;
 }
 
+em{
+  color:rgb(99, 210, 20) ;
+  font-weight: 900;
+}
+
 .hero-new {
   position: relative;
   z-index: 1;
