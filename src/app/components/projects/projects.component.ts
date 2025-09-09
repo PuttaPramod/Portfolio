@@ -24,16 +24,7 @@ export class ProjectsComponent implements OnInit {
       once: true
     });
   }
-  projects: Project[] = [
-    {
-      title: 'Todo App',
-      description: 'A responsive todo application built with Angular and Firebase.',
-      image: 'assets/todo.png',
-      demo: 'https://your-demo-url.com',
-      repo: 'https://github.com/yourname/todo-app'
-    },
-    // Add more projects here
-  ];
+  
   lightboxOpen = false;
   currentImg: string | null = null;
 

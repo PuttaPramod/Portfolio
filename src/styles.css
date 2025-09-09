@@ -18,7 +18,7 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   color: var(--text-color);
-  background: linear-gradient(135deg, rgba(94, 160, 160, 0.8), rgba(77, 69, 169, 0.482));
+  background: linear-gradient(135deg, rgba(110, 169, 169, 0.893), rgba(77, 69, 169, 0.482));
 }
 
 h1, h2, h3, h4 {
