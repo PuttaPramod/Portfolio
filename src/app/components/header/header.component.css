@@ -7,6 +7,9 @@
   transition: all 0.3s ease;
 }
 
+a{
+  text-decoration: none;
+}
 /* Hover effect */
 .glass-link:hover {
   background: rgba(0, 255, 200, 0.15);
