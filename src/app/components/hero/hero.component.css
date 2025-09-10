@@ -3,7 +3,7 @@
 /* Hero Section */
 #hero {
   min-height: 100vh;
-  background: linear-gradient(135deg, rgba(94,160,160,0.8), rgba(77,69,169,0.55)), url("/assets/profile.jpg") center/cover no-repeat;
+  background: linear-gradient(135deg, rgba(91, 101, 159, 0.8), rgba(168, 72, 125, 0.55)), url("/assets/profile.jpg") center/cover no-repeat !important;
   display: flex;
   align-items: center;
   color: #fff;
@@ -31,7 +31,7 @@ em{
   left: 0;
   width: 100%;
   height: 180px;
-  background: linear-gradient(to bottom, rgba(21, 175, 175, 0), rgba(110, 169, 169, 0.893) 95%);
+  background: linear-gradient(to bottom, rgba(21, 175, 175, 0), rgba(110, 169, 169, 0.893) 100%);
   pointer-events: none;
   z-index: 2;
 }
