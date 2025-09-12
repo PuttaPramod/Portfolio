@@ -1,44 +1,131 @@
-.skills-list {
-  display: flex;
-  flex-direction: column;
+
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
 }
 
-.skill-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.skill-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #00ffcc, #00ccff);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.6rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.skill-details {
-  flex: 1;
-  padding: 0 1rem;
-}
-
-.skill-progress {
-  background: rgba(255, 255, 255, 0.2);
-  height: 22px;
+.skill-card {
+  position: relative;
   border-radius: 20px;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  transition: all 0.4s ease-in-out;
   overflow: hidden;
 }
 
-.skill-progress .progress-bar {
-  background: linear-gradient(to right, #ff9800, #00e676);
-  width: 0; /* default 0, will animate */
-  height: 100%;
-  border-radius: 6px;
-  transition: width 2s ease-in-out;
+.skill-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
 }
+
+/* Circular progress */
+.circular-progress {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  position: relative;
+}
+
+.circular-progress svg {
+  transform: rotate(-90deg);
+}
+
+.circular-progress circle {
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.circular-progress circle:first-child {
+  stroke: rgba(255, 255, 255, 0.3);
+}
+
+.circular-progress circle:last-child {
+  stroke: #fff;
+  stroke-dasharray: 0;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1.2s ease-out;
+}
+
+.percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Skill name + icon */
+.skill-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* 🎨 Gradient color themes per skill */
+.skill-card.html {
+  background: linear-gradient(135deg, #c2853b, #ffd200);
+}
+.skill-card.css {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+.skill-card.ts {
+  background: linear-gradient(135deg, #007cf0, #00dfd8);
+}
+.skill-card.angular {
+  background: linear-gradient(135deg, #ff416c, #c57e71);
+}
+.skill-card.node {
+  background: linear-gradient(135deg, #56ab2f, #a8e063);
+}
+.skill-card.python {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+/* Neon glow animation */
+@keyframes neon-glow {
+  0% {
+    box-shadow: 0 0 10px rgba(255,255,255,0.3),
+                0 0 20px rgba(255,255,255,0.2),
+                0 0 30px rgba(255,255,255,0.1);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255,255,255,0.6),
+                0 0 40px rgba(255,255,255,0.4),
+                0 0 60px rgba(255,255,255,0.3);
+  }
+}
+
+.skill-card {
+  position: relative;
+  border-radius: 20px;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+  animation: neon-glow 3s infinite alternate; /* neon border pulse */
+}
+
+.skill-card:hover {
+  transform: translateY(-12px) scale(1.05);
+}
+
+/* Circular progress fix */.circular-progress circle:last-child {
+  stroke: #fff; /* fallback color */
+  stroke-dasharray: 339;
+  stroke-dashoffset: 339;
+  transition: stroke-dashoffset 1.2s ease-out;
+}
+

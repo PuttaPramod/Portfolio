@@ -1,30 +1,29 @@
-<section id="skills" class="skills container py-5">
-  <h2 class="mb-5 text-center display-4 fw-bold text-gradient">✨ My Skills & Technologies</h2>
+<section id="skills" class="skills container">
+  <h2 class="mb-5 text-center display-4 fw-bold text-gradient" height="200">
+    ✨ My Skills & Technologies
+  </h2>
 
-  <div class="skills-list">
-    <div class="skill-item" *ngFor="let skill of skills">
-      <!-- Left Icon -->
-      <div class="skill-icon left">
+  <div class="skills-container">
+    <div class="skill-card" *ngFor="let skill of skills" [ngClass]="{
+        html: skill.name === 'HTML',
+        css: skill.name === 'CSS',
+        ts: skill.name === 'TypeScript',
+        angular: skill.name === 'Angular',
+        node: skill.name === 'Node.js',
+        python: skill.name === 'Python'
+      }" data-aos="zoom-in">
+      <div class="circular-progress" [attr.data-skill]="skill.level">
+        <svg width="120" height="120">
+          <circle cx="60" cy="60" r="54"></circle>
+          <circle #skillCircle cx="60" cy="60" r="54"></circle>
+        </svg>
+        <div #percentageText class="percentage">0%</div>
+      </div>
+
+      <div class="skill-icon">
         <i [class]="skill.leftIcon"></i>
       </div>
-
-      <!-- Skill Name + Progress -->
-      <div class="skill-details">
-        <h5 class="fw-semibold">{{ skill.name }}</h5>
-        <div class="progress skill-progress">
-          <div class="progress-bar"
-               role="progressbar"
-               [attr.data-progress]="skill.level"
-               aria-valuemin="0" aria-valuemax="100">
-            {{ skill.level }}%
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Icon -->
-      <div class="skill-icon right">
-        <i [class]="skill.rightIcon"></i>
-      </div>
+      <div class="skill-name">{{ skill.name }}</div>
     </div>
   </div>
 </section>
