@@ -67,13 +67,13 @@
 .badge-pill {
   display: inline-block;
   background-color: #e0e7ff;
-  color: #3730a3;
+  color: #1ee775;
   padding: 6px 18px;
   font-weight: 700;
   letter-spacing: 1.5px;
   border-radius: 20px;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
@@ -277,6 +277,12 @@
   text-decoration: none;
 }
 
+
+.text-gradient {
+  background: linear-gradient(to right, #d81157, #6d0ee1, #d8c00b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 /* Enhanced Lightbox */
 .lightbox-modal {
   position: fixed;

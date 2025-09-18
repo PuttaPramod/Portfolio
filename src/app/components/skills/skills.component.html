@@ -1,29 +1,36 @@
-<section id="skills" class="skills container">
-  <h2 class="mb-5 text-center display-4 fw-bold text-gradient" height="200">
-    ✨ My Skills & Technologies
+<section id="skills" class="skills container py-5">
+  <h2 class="mb-5 text-center display-4 fw-bold text-gradient">
+    <b id="none">✨</b> My Skills & Technologies
   </h2>
 
-  <div class="skills-container">
-    <div class="skill-card" *ngFor="let skill of skills" [ngClass]="{
-        html: skill.name === 'HTML',
-        css: skill.name === 'CSS',
-        ts: skill.name === 'TypeScript',
-        angular: skill.name === 'Angular',
-        node: skill.name === 'Node.js',
-        python: skill.name === 'Python'
-      }" data-aos="zoom-in">
-      <div class="circular-progress" [attr.data-skill]="skill.level">
-        <svg width="120" height="120">
-          <circle cx="60" cy="60" r="54"></circle>
-          <circle #skillCircle cx="60" cy="60" r="54"></circle>
-        </svg>
-        <div #percentageText class="percentage">0%</div>
-      </div>
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let skill of skills">
+      <div class="skill-card p-4 text-center shadow-lg rounded-4" data-aos="zoom-in">
+        
+        <!-- Icon -->
+        <div class="skill-icon mb-3" [ngClass]="skill.name.toLowerCase().replace('.', '').replace(' ', '-')">
+          <i [class]="skill.leftIcon"></i>
+        </div>
 
-      <div class="skill-icon">
-        <i [class]="skill.leftIcon"></i>
+        <!-- Skill Name -->
+        <h5 class="fw-bold">{{ skill.name }}</h5>
+
+        <!-- Progress Bar -->
+        <div class="progress w-100 mb-2" style="height: 10px; border-radius: 50px;">
+          <div
+            class="progress-bar"
+            role="progressbar"
+            [style.width.%]="skill.animatedLevel"
+            [attr.aria-valuenow]="skill.animatedLevel"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            [ngClass]="skill.name.toLowerCase().replace('.', '').replace(' ', '-')"
+          ></div>
+        </div>
+
+        <!-- Percentage -->
+        <span class="fw-bold text-gradient">{{ skill.animatedLevel }}%</span>
       </div>
-      <div class="skill-name">{{ skill.name }}</div>
     </div>
   </div>
 </section>

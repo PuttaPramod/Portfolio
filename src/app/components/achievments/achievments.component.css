@@ -10,6 +10,13 @@
   margin: 0 auto;
 }
 
+.title{
+  color: rgb(255, 47, 0);
+  font-weight: bolder;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
 .section-title {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
@@ -51,7 +58,7 @@
 
 .cert-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
 }
 
@@ -81,7 +88,7 @@
 .cert-image {
   display: block;
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
   will-change: transform;
@@ -91,6 +98,11 @@
   transform: scale(1.07);
 }
 
+.text-gradient {
+  background: linear-gradient(to right, #d81157, #6d0ee1, #d8c00b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .cert-overlay {
   position: absolute;
   bottom: 0;
@@ -117,22 +129,26 @@
 
 .cert-overlay h5 {
   margin: 0 0 0.15rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 1.15rem;
+  font-weight: bolder;
+  font-size: 1.45rem;
   letter-spacing: 0.03em;
 }
 
 .cert-issuer {
-  font-size: 0.9rem;
-  font-style: italic;
+  font-size: 1rem;
+  font-weight: 900;
+  color: aqua;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 4px;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 0.02em;
+
 }
 
 .cert-date {
   font-size: 0.85rem;
+  color:chartreuse;
+  font-weight: 900;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 0.02em;
 }

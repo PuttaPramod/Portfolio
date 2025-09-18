@@ -1,131 +1,68 @@
-
-
-.skills-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-}
-
-.skill-card {
-  position: relative;
+/* Section */
+.skills {
   border-radius: 20px;
-  padding: 2rem 1rem;
-  text-align: center;
-  color: #fff;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  transition: all 0.4s ease-in-out;
-  overflow: hidden;
+  padding: 50px;
 }
 
-.skill-card:hover {
-  transform: translateY(-12px) scale(1.05);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-}
-
-/* Circular progress */
-.circular-progress {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 1rem;
-  position: relative;
-}
-
-.circular-progress svg {
-  transform: rotate(-90deg);
-}
-
-.circular-progress circle {
-  fill: none;
-  stroke-width: 10;
-  stroke-linecap: round;
-}
-
-.circular-progress circle:first-child {
-  stroke: rgba(255, 255, 255, 0.3);
-}
-
-.circular-progress circle:last-child {
-  stroke: #fff;
-  stroke-dasharray: 0;
-  stroke-dashoffset: 0;
-  transition: stroke-dashoffset 1.2s ease-out;
-}
-
-.percentage {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #fff;
-}
-
-/* Skill name + icon */
-.skill-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.skill-name {
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-/* 🎨 Gradient color themes per skill */
-.skill-card.html {
-  background: linear-gradient(135deg, #c2853b, #ffd200);
-}
-.skill-card.css {
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-}
-.skill-card.ts {
-  background: linear-gradient(135deg, #007cf0, #00dfd8);
-}
-.skill-card.angular {
-  background: linear-gradient(135deg, #ff416c, #c57e71);
-}
-.skill-card.node {
-  background: linear-gradient(135deg, #56ab2f, #a8e063);
-}
-.skill-card.python {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-}
-/* Neon glow animation */
-@keyframes neon-glow {
-  0% {
-    box-shadow: 0 0 10px rgba(255,255,255,0.3),
-                0 0 20px rgba(255,255,255,0.2),
-                0 0 30px rgba(255,255,255,0.1);
-  }
-  100% {
-    box-shadow: 0 0 20px rgba(255,255,255,0.6),
-                0 0 40px rgba(255,255,255,0.4),
-                0 0 60px rgba(255,255,255,0.3);
-  }
-}
-
+/* Skill Cards */
 .skill-card {
-  position: relative;
+  background: #ffffff76;
   border-radius: 20px;
-  padding: 2rem 1rem;
-  text-align: center;
-  color: #fff;
-  backdrop-filter: blur(10px);
-  transition: all 0.4s ease-in-out;
-  overflow: hidden;
-  animation: neon-glow 3s infinite alternate; /* neon border pulse */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .skill-card:hover {
-  transform: translateY(-12px) scale(1.05);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Circular progress fix */.circular-progress circle:last-child {
-  stroke: #fff; /* fallback color */
-  stroke-dasharray: 339;
-  stroke-dashoffset: 339;
-  transition: stroke-dashoffset 1.2s ease-out;
+
+
+/* Icons */
+.skill-icon i {
+  font-size: 3rem;
+  padding: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
+/* Default Progress Bar */
+.progress-bar {
+  border-radius: 50px;
+  transition: width 1s ease-out;
+}
+
+/* Individual Colors (Progress + Icons) */
+.skill-icon.html, .progress-bar.html {
+  background: linear-gradient(90deg, #ff5722, #ff8a50);
+  box-shadow: 0 0 15px rgba(255, 87, 34, 0.7);
+}
+.skill-icon.css, .progress-bar.css {
+  background: linear-gradient(90deg, #2196f3, #6ec6ff);
+  box-shadow: 0 0 15px rgba(33, 150, 243, 0.7);
+}
+.skill-icon.typescript, .progress-bar.typescript {
+  background: linear-gradient(90deg, #3178c6, #6ea8ff);
+  box-shadow: 0 0 15px rgba(49, 120, 198, 0.7);
+}
+.skill-icon.angular, .progress-bar.angular {
+  background: linear-gradient(90deg, #dd0031, #ff5f52);
+  box-shadow: 0 0 15px rgba(221, 0, 49, 0.7);
+}
+.skill-icon.nodejs, .progress-bar.nodejs {
+  background: linear-gradient(90deg, #3c873a, #6fbf73);
+  box-shadow: 0 0 15px rgba(60, 135, 58, 0.7);
+}
+.skill-icon.python, .progress-bar.python {
+  background: linear-gradient(90deg, #ffde57, #ffd600);
+  box-shadow: 0 0 15px rgba(255, 222, 87, 0.7);
+}
+
+/* Gradient Text */
+.text-gradient {
+  background: linear-gradient(to right, #d81157, #6d0ee1, #d8c00b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+ 

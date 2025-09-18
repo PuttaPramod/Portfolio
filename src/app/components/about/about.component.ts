@@ -1,51 +1,44 @@
-import { Component, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ElementRef,OnInit} from '@angular/core';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements AfterViewInit {
+export class AboutComponent implements OnInit {
+constructor(private el: ElementRef) {}
 
-  constructor(private el: ElementRef) {}
+  ngOnInit() {
+    const numbers = this.el.nativeElement.querySelectorAll('.stat-number');
 
-  ngAfterViewInit(): void {
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-
-          // Animate numbers only once
-          if (entry.target.classList.contains('stat-card')) {
-            const numElement = entry.target.querySelector('.stat-number') as HTMLElement;
-            if (numElement && !numElement.classList.contains('counted')) {
-              this.animateCount(numElement);
-              numElement.classList.add('counted');
-            }
-          }
+          const numEl = entry.target as HTMLElement;
+          this.animateCount(numEl);
+          observer.unobserve(numEl); // run once per element
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.6 });
 
-    // Observe all elements with animate-on-scroll
-    const elements = this.el.nativeElement.querySelectorAll('.animate-on-scroll');
-    elements.forEach((el: Element) => observer.observe(el));
+    numbers.forEach((num: Element) => observer.observe(num));
   }
 
-  private animateCount(element: HTMLElement) {
-    const target = +element.getAttribute('data-target')!;
+  private animateCount(el: HTMLElement) {
+    const target = +el.getAttribute('data-target')!;
     let current = 0;
-    const increment = Math.ceil(target / 100);
+    const increment = Math.ceil(target / 100); // smoother counting
+    el.classList.add('animated');
 
-    const updateCount = () => {
+    const timer = setInterval(() => {
       current += increment;
-      if (current > target) current = target;
-      element.innerText = current.toString();
-
-      if (current < target) {
-        requestAnimationFrame(updateCount);
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+        el.classList.remove('animated'); // remove effect when finished
       }
-    };
-    updateCount();
+      el.textContent = current.toString();
+    }, 60); // speed (40ms → ~4 seconds total)
   }
 }
