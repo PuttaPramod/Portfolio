@@ -1,62 +1,131 @@
-<!-- projects.component.html -->
-<section id="projects" class="projects-section container py-5">
-  <h2 class="section-title" data-aos="fade-down">🚀 Featured Projects</h2>
+<section id="projects" class="projects-section">
+  <div class="animated-bg">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+  </div>
 
-  <div class="projects-grid">
-    <!-- Project Card 1 -->
-    <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-      <!-- Image wrapper with click-to-enlarge -->
-      <div class="project-img-wrapper" style="cursor: pointer;" (click)="openLightbox('assets/Guidex.png')">
-        <img src="assets/Guidex.png" alt="Guidex" class="project-img" />
-      </div>
-      <div class="project-content">
-        <h2>Guidex</h2>
-        <p style="font-weight: 900; color: beige;">
-          Awareness for 10th Grade Students for Choosing Their Stream/Interests using Angular Framework, TypeScript with responsive CSS Styles Used tools VS Code,GitHub.
-        </p>
-        <div class="btn-group">
-          <a href="http://pkguidesu.netlify.app/" target="_blank" class="btn-glow" id="Guidex">Live Demo</a>
-        </div>
-      </div>
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <span class="badge-pill">My Work</span>
+      <h1 class="projects-title">Featured Projects</h1>
+      <p class="projects-subtitle">Crafted with passion and precision</p>
     </div>
 
-    <!-- Project Card 2 -->
-    <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-      <div class="project-img-wrapper" style="cursor: pointer;" (click)="openLightbox('assets/portfolio.png')">
-        <img src="assets/portfolio.png" alt="Portfolio Website" class="project-img" />
-      </div>
-      <div class="project-content">
-        <h2>Portfolio Website</h2>
-        <p style="font-weight: 900; color: beige;">
-          A Portfolio Website using Angular Framework, TypeScript with responsive CSS Styles Used tools VS Code,GitHub.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;
-        </p>
-        <div class="btn-group">
-          <a href="https://pramodport.netlify.app/" target="_blank" class="btn-glow" id="port">Live Demo</a>
+
+    <div class="projects-timeline">
+      <!-- Project 1 -->
+      <div class="timeline-item left" data-aos="slide-right" data-aos-delay="100">
+        <div class="project-card diagonal-card">
+          <div class="card-number">01</div>
+          <div class="project-image-container" (click)="openLightbox('assets/Guidex.png')">
+            <img src="assets/Guidex.png" alt="Guidex" class="project-image">
+            <div class="image-overlay">
+              <i class="fas fa-eye"></i>
+              <span class="overlay-text">Click to view</span>
+            </div>
+          </div>
+          <div class="project-details">
+            <div class="project-category">Education Platform</div>
+            <h3 class="project-title">Guidex</h3>
+            <p class="project-description">
+              Smart career guidance platform for 10th-grade students with interactive quizzes and personalized stream recommendations.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-badge">Angular</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">CSS3</span>
+            </div>
+            <a href="http://pkguidesu.netlify.app/" target="_blank" class="project-link" tabindex="0">
+              <span>View Project</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Project Card 3 -->
-    <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
-      <div class="project-img-wrapper" style="cursor: pointer;" (click)="openLightbox('assets/todoapp.png')">
-        <img src="assets/todoapp.png" alt="Blogging Platform" class="project-img" />
+      <!-- Project 2 -->
+      <div class="timeline-item right" data-aos="slide-left" data-aos-delay="200">
+        <div class="project-card floating-card">
+          <div class="card-number">02</div>
+          <div class="project-details">
+            <div class="project-category">Personal Branding</div>
+            <h3 class="project-title">Portfolio Website</h3>
+            <p class="project-description">
+              Modern, responsive portfolio showcasing my skills, projects, and achievements with smooth animations and interactive elements.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-badge">Angular</span>
+              <span class="tech-badge">Bootstrap</span>
+              <span class="tech-badge">AOS</span>
+            </div>
+            <a href="https://pramodport.netlify.app/" target="_blank" class="project-link" tabindex="0">
+              <span>View Project</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="project-image-container" (click)="openLightbox('assets/portfolio.png')">
+            <img src="assets/portfolio.png" alt="Portfolio" class="project-image">
+            <div class="image-overlay">
+              <i class="fas fa-eye"></i>
+              <span class="overlay-text">Click to view</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="project-content">
-        <h2>Task Manager</h2>
-        <p style="font-weight: 900; color: beige;">
-          A TodoList website for add/remove/edit tasks using Angular Framework, TypeScript with responsive CSS Styles Used tools VS Code,GitHub.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;
-        </p>
-        <div class="btn-group">
-          <a href="https://dayplan.onrender.com/" target="_blank" class="btn-glow">Live Demo</a>
+
+      <!-- Project 3 -->
+      <div class="timeline-item left" data-aos="slide-right" data-aos-delay="300">
+        <div class="project-card morphed-card">
+          <div class="card-number">03</div>
+          <div class="project-image-container" (click)="openLightbox('assets/todoapp.png')">
+            <img src="assets/todoapp.png" alt="Task Manager" class="project-image">
+            <div class="image-overlay">
+              <i class="fas fa-eye"></i>
+              <span class="overlay-text">Click to view</span>
+            </div>
+          </div>
+          <div class="project-details">
+            <div class="project-category">Productivity App</div>
+            <h3 class="project-title">Task Manager</h3>
+            <p class="project-description">
+              Intuitive task management application with priority levels, due dates, and progress tracking for enhanced productivity.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-badge">Angular</span>
+              <span class="tech-badge">LocalStorage</span>
+              <span class="tech-badge">Material UI</span>
+            </div>
+            <a href="https://dayplan.onrender.com/" target="_blank" class="project-link" tabindex="0">
+              <span>View Project</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Lightbox Overlay -->
-  <div class="lightbox-overlay" *ngIf="lightboxOpen" (click)="closeLightbox()">
-    <img [src]="currentImg" alt="Enlarged Project" class="lightbox-img" />
+  <!-- Lightbox Modal -->
+  <div 
+    class="lightbox-modal" 
+    *ngIf="lightboxOpen" 
+    (click)="onLightboxBackgroundClick($event)">
+    
+    <div class="lightbox-content" (click)="onLightboxContentClick($event)">
+      <img [src]="currentImg" alt="Project Preview" class="lightbox-image">
+
+      <button 
+        class="lightbox-close" 
+        (click)="closeLightbox()"
+        type="button"
+        aria-label="Close lightbox"
+        tabindex="0"
+        title="Close lightbox">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <div class="close-hint">Press ESC or click outside to close</div>
+    </div>
   </div>
 </section>

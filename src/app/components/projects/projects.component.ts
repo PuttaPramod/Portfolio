@@ -1,42 +1,58 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import * as AOS from 'aos';
-
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  demo: string;
-  repo: string;
-}
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
-  imports: [CommonModule,RouterModule],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  ngOnInit() {
+  lightboxOpen = false;
+  currentImg = '';
+
+  ngOnInit(): void {
     AOS.init({
-      duration: 1000,
-      once: true
+      duration: 800,
+      once: true,
+      easing: 'ease-in-out'
     });
   }
-  
-  lightboxOpen = false;
-  currentImg: string | null = null;
 
   openLightbox(imgUrl: string): void {
+    console.log('Opening lightbox with image:', imgUrl);
     this.currentImg = imgUrl;
     this.lightboxOpen = true;
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
   }
-
-  closeLightbox(): void {
-    this.lightboxOpen = false;
-    this.currentImg = null;
-  }
-
   
+  closeLightbox(): void {
+    console.log('Closing lightbox');
+    this.lightboxOpen = false;
+    this.currentImg = '';
+    document.body.style.overflow = 'auto'; // Restore scroll
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'Escape' && this.lightboxOpen) {
+      this.closeLightbox();
+    }
+  }
+
+  onLightboxBackgroundClick(event: MouseEvent): void {
+    this.closeLightbox();
+  }
+
+  onLightboxContentClick(event: MouseEvent): void {
+    event.stopPropagation(); // Prevent closing when clicking on lightbox content
+  }
+
+  // Added test method to verify event bindings
+  testClick(): void {
+    console.log('Test button clicked');
+  }
 }

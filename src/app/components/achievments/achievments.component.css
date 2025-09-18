@@ -1,94 +1,241 @@
-/* Section Title */
-.section-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: #fff;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.certificates-section {
+  position: relative;
+  padding-bottom: 3rem;
 }
 
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+
+.section-underline {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  border-radius: 12px;
+  margin: 0.5rem auto 0;
+  animation: underlineGrow 1s ease forwards;
+}
+
+@keyframes underlineGrow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60px;
+  }
+}
 
 .section-subtitle {
-  font-size: 1rem;
-  color: #ddd;
+  color: #34495e;
+  font-weight: 400;
+  font-size: 1.1rem;
   margin-bottom: 2rem;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.02em;
 }
 
-/* Certificate Card */
+.cert-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
 .cert-card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
+  position: relative;
   overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 0.07);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s ease;
+  cursor: pointer;
+  background: white;
+  will-change: transform;
+  outline-offset: 4px;
 }
 
+.cert-card:focus,
 .cert-card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  box-shadow: 0 16px 40px rgb(0 0 0 / 0.15);
+  transform: translateY(-8px) rotateX(5deg) rotateY(3deg);
 }
 
-/* Image */
-.cert-image-wrapper {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
+.cert-card:focus-visible {
+  outline: 2px solid #6a11cb;
 }
 
 .cert-image {
+  display: block;
   width: 100%;
-  height: 100%;
+  height: 200px;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
+  will-change: transform;
 }
 
 .cert-card:hover .cert-image {
-  transform: scale(1.1);
+  transform: scale(1.07);
 }
 
-/* Info */
-.cert-info {
-  text-align: center;
+.cert-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1.25rem;
+  color: #fff;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(58, 54, 54, 0.7) 60%,
+    rgba(58, 54, 54, 0.9) 100%
+  );
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
-.cert-title {
-  font-size: 1.2rem;
+.cert-card:hover .cert-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cert-overlay h5 {
+  margin: 0 0 0.15rem;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  color: #ffd369;
+  font-size: 1.15rem;
+  letter-spacing: 0.03em;
 }
 
 .cert-issuer {
-  font-size: 0.95rem;
-  color: #ccc;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 4px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.02em;
 }
 
 .cert-date {
   font-size: 0.85rem;
-  color: #aaa;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.02em;
 }
-/* Lightbox overlay covering the entire viewport */
+
 .lightbox-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.8); /* semi-transparent black */
+  background: rgba(10, 10, 10, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1050;            /* above most other elements */
-  cursor: zoom-out;         /* indicate click to close */
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  z-index: 1100;
 }
 
-/* The enlarged image inside the overlay */
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 40px #6a11cbaa;
+  padding: 1rem 1.5rem 2rem; /* padding around content but allow button separation */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align close button right */
+  margin-top: 20px; /* space from top edge */
+}
+
+.close-btn {
+  background: #6a11cb;
+  color: #fff;
+  font-size: 2.2rem;
+  border-radius: 50%;
+  padding: 2px 16px;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(106, 17, 203, 0.7);
+  border: 2px solid #fff;
+  transition: background 0.3s;
+  margin: -34px 0 8px 0; /* Pull the button visually out above the content */
+  z-index: 2;
+  position: relative;
+  line-height: 1;
+  user-select: none;
+}
+
+.close-btn:hover {
+  background: #2575fc;
+  border-color: #fff;
+}
+
 .lightbox-img {
-  max-width: 90%;           /* leave some margin around */
-  max-height: 90%;          /* prevent overflow */
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  object-fit: contain;      /* maintain image aspect ratio */
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 16px;
+  margin: 0 auto;
+  display: block;
+  object-fit: contain;
+  width: auto;
+  height: auto;
+  transition: transform 0.5s ease;
+  will-change: transform;
 }
 
+@keyframes fadeIn {
+  from {
+    background: rgba(10, 10, 10, 0);
+  }
+  to {
+    background: rgba(10, 10, 10, 0.8);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  .lightbox-content {
+    max-width: 98vw;
+    max-height: 85vh;
+    margin-top: 8px;
+    padding: 0.6rem 1rem 1rem;
+  }
+
+  .close-btn {
+    font-size: 1.7rem;
+    margin-top: -28px;
+    padding: 1px 12px;
+  }
+
+  .lightbox-img {
+    max-width: 96vw;
+    max-height: 54vh;
+  }
+}

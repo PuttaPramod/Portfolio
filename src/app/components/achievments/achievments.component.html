@@ -1,40 +1,55 @@
 <section class="certificates-section py-5" id="certificates">
   <div class="container">
     <!-- Section Heading -->
-    <div class="row mb-4 text-center">
+    <div class="row mb-5 text-center">
       <div class="col-12">
-        <h2 class="section-title" data-aos="fade-down">🎓 My Certificates</h2>
-        <p class="section-subtitle" data-aos="fade-up">Professional credentials & skills</p>
+        <h2 class="section-title" data-aos="fade-down">
+          🎓 My Certificates
+          <span class="section-underline"></span>
+        </h2>
+        <p class="section-subtitle" data-aos="fade-up">
+          Professional credentials & achievements
+        </p>
       </div>
     </div>
 
-    <!-- Certificates Grid -->
-    <div class="row g-4">
-      <div class="col-lg-4 col-md-6" *ngFor="let cert of certificates; let i = index">
-        <div class="cert-card" data-aos="zoom-in" [attr.data-aos-delay]="i * 150">
-          <div class="cert-image-wrapper">
-            <img
-  [src]="cert.img"
-  [alt]="cert.title"
-  class="cert-image"
-  (click)="openLightbox(cert.img)"
-  style="cursor:pointer; object-fit:cover;"
-/>
-          </div>
-          <div class="cert-info p-3">
-            <h5 class="cert-title">{{ cert.title }}</h5>
-            <p  style="font-weight: 200;color: blueviolet;font-family: cursive;" class="cert-issuer">{{ cert.issuer }}</p>
-            <p style="font-size: 20px;font-weight: bold;color: rgb(224, 23, 67);font-family: 'Times New Roman', Times, serif;" class="cert-date">{{ cert.date }}</p>
-          </div>
+    <!-- Masonry / Gallery Layout -->
+    <div class="cert-gallery">
+      <div
+        class="cert-card"
+        *ngFor="let cert of certificates; let i = index"
+        [attr.data-aos-delay]="i * 150"
+        (click)="openLightbox(cert.img)"
+        tabindex="0"
+        (keydown.enter)="openLightbox(cert.img)"
+      >
+        <img
+          [src]="cert.img"
+          [alt]="cert.title"
+          class="cert-image"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="cert-overlay">
+          <h5>{{ cert.title }}</h5>
+          <p class="cert-issuer">{{ cert.issuer }}</p>
+          <span class="cert-date">{{ cert.date }}</span>
         </div>
       </div>
     </div>
   </div>
-  <div
-    class="lightbox-overlay"
-    *ngIf="lightboxOpen"
-    (click)="closeLightbox()"
-  >
-    <img [src]="currentImg" alt="Certificate" class="lightbox-img" style="justify-content: center;"/>
+
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" *ngIf="lightboxOpen" (click)="closeLightbox()">
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <span class="close-btn" (click)="closeLightbox()">&times;</span>
+      <img
+        [src]="currentImg"
+        alt="Certificate"
+        class="lightbox-img"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
   </div>
 </section>
