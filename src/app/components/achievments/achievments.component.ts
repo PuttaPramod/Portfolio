@@ -24,11 +24,14 @@ export class AchievmentsComponent implements OnInit {
   ];
 animationStates: any;
 
-  ngOnInit(): void {
+   ngOnInit(): void {
     AOS.init({
-      duration: 1000,
+      duration: 800,
+      easing: 'ease-in-out',
       once: true
     });
+    // Refresh AOS after view init
+    setTimeout(() => AOS.refresh(), 100);
   }
   currentImg: string | null = null;
   lightboxOpen = false;

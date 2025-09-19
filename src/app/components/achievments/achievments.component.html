@@ -1,13 +1,23 @@
+<!-- certificates-section.component.html -->
 <section class="certificates-section py-2" id="certificates">
   <div class="container">
     <!-- Section Heading -->
     <div class="row mb-5 text-center">
       <div class="col-12">
-        <h2 class="mb-5 text-center display-4 fw-bold text-gradient" data-aos="fade-down">
+        <h2
+          class="mb-5 text-center display-4 fw-bold text-gradient"
+          data-aos="fade-down"
+          data-aos-duration="800"
+        >
           🎓 My Certificates
           <span class="section-underline"></span>
         </h2>
-        <p class="section-subtitle" data-aos="fade-up">
+        <p
+          class="section-subtitle"
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="200"
+        >
           Professional credentials & achievements
         </p>
       </div>
@@ -18,7 +28,10 @@
       <div
         class="cert-card"
         *ngFor="let cert of certificates; let i = index"
+        data-aos="zoom-in-up"
         [attr.data-aos-delay]="i * 150"
+        data-aos-duration="600"
+        data-aos-easing="ease-out-back"
         (click)="openLightbox(cert.img)"
         tabindex="0"
         (keydown.enter)="openLightbox(cert.img)"
@@ -31,17 +44,44 @@
           decoding="async"
         />
         <div class="cert-overlay">
-          <h5 class="title fw-bold">{{ cert.title }}</h5>
-          <p class="cert-issuer issue">{{ cert.issuer }}</p>
-          <span class="cert-date date">{{ cert.date }}</span>
+          <h5
+            class="title fw-bold"
+            data-aos="fade-in"
+            [attr.data-aos-delay]="(i * 150) + 300"
+          >
+            {{ cert.title }}
+          </h5>
+          <p
+            class="cert-issuer issue"
+            data-aos="fade-in"
+            [attr.data-aos-delay]="(i * 150) + 400"
+          >
+            {{ cert.issuer }}
+          </p>
+          <span
+            class="cert-date date"
+            data-aos="fade-in"
+            [attr.data-aos-delay]="(i * 150) + 500"
+          >
+            {{ cert.date }}
+          </span>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Lightbox -->
-  <div class="lightbox-overlay" *ngIf="lightboxOpen" (click)="closeLightbox()">
-    <div class="lightbox-content" (click)="$event.stopPropagation()">
+  <div
+    class="lightbox-overlay"
+    *ngIf="lightboxOpen"
+    (click)="closeLightbox()"
+  >
+    <div
+      class="lightbox-content"
+      (click)="$event.stopPropagation()"
+      data-aos="zoom-in"
+      data-aos-duration="300"
+    >
       <span class="close-btn" (click)="closeLightbox()">&times;</span>
       <img
         [src]="currentImg"

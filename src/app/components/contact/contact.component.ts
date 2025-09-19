@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators,FormsModule,ReactiveFormsModule } fr
 import emailjs from '@emailjs/browser';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import Aos from 'aos';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-contact',
@@ -82,9 +82,14 @@ export class ContactComponent {
     });
 
     // Init AOS animation library
-    Aos.init({
-      duration: 1000,
-      once: true
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 100
     });
+    
+    // Refresh AOS after view init
+    setTimeout(() => AOS.refresh(), 100);
   }
   }
