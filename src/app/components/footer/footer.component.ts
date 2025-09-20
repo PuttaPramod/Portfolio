@@ -1,26 +1,20 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import * as AOS from 'aos';
-
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.css'] // keep your own CSS
 })
 export class FooterComponent implements OnInit {
-  showButton = false;
-
   async ngOnInit() {
-    // Dynamically import AOS (works even if it's CommonJS)
+    // Load AOS dynamically so Vite doesn't treat it as ESM
     const AOS = (await import('aos')).default;
 
-    // Initialize AOS
+
+    // Initialize
     AOS.init({
-      duration: 1000,   // animation duration in ms
-      once: true        // run animation only once
+      duration: 1000,
+      once: true
     });
   }
-
-
-  
 }
