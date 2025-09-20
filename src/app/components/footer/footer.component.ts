@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-footer',
@@ -6,12 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css'] // keep your own CSS
 })
 export class FooterComponent implements OnInit {
-  async ngOnInit() {
-    // Load AOS dynamically so Vite doesn't treat it as ESM
-    const AOS = (await import('aos')).default;
-
-
-    // Initialize
+  ngOnInit() {
     AOS.init({
       duration: 1000,
       once: true
