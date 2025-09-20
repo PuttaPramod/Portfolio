@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import AOS from 'aos';
+import * as AOS from 'aos';
+
 
 @Component({
   selector: 'app-footer',
@@ -10,9 +11,9 @@ export class FooterComponent implements OnInit {
   showButton = false;
 
   async ngOnInit() {
-  const AOS = await import('aos');
-  AOS.init();
-}
+    const AOS = await import('aos');
+    AOS.init();
+  }
 
 
   @HostListener('window:scroll')
