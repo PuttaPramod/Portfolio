@@ -11,15 +11,16 @@ export class FooterComponent implements OnInit {
   showButton = false;
 
   async ngOnInit() {
+    // Dynamically import AOS (works even if it's CommonJS)
     const AOS = (await import('aos')).default;
-    AOS.init();
+
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,   // animation duration in ms
+      once: true        // run animation only once
+    });
   }
 
 
-  @HostListener('window:scroll')
-  onWindowScroll() {
-    this.showButton = window.scrollY > 200;
-    const btn = document.querySelector('.scroll-to-top') as HTMLElement;
-    if (btn) btn.style.display = this.showButton ? 'block' : 'none';
-  }
+  
 }
