@@ -11,7 +11,7 @@ export class FooterComponent implements OnInit {
   showButton = false;
 
   async ngOnInit() {
-    const AOS = await import('aos');
+    const AOS = (await import('aos')).default;
     AOS.init();
   }
 
