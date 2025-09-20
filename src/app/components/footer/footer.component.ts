@@ -9,9 +9,11 @@ import AOS from 'aos';
 export class FooterComponent implements OnInit {
   showButton = false;
 
-  ngOnInit(): void {
-    AOS.init({ duration: 1000, once: true });
-  }
+  async ngOnInit() {
+  const AOS = await import('aos');
+  AOS.init();
+}
+
 
   @HostListener('window:scroll')
   onWindowScroll() {
