@@ -3,7 +3,7 @@
 /* Hero Section */
 #hero {
   min-height: 100vh;
-  background: linear-gradient(135deg, rgba(91, 101, 159, 0.8), rgba(168, 72, 125, 0.55)), url("/assets/profile.jpg") center/cover no-repeat !important;
+  background: linear-gradient(135deg, rgba(91, 101, 159, 0.8), rgba(168, 72, 125, 0.55)), url("/assets/profile.png") center/cover no-repeat !important;
   display: flex;
   align-items: center;
   color: #fff;
@@ -108,7 +108,7 @@ a{
   position: relative;
   min-height: 100vh;
   background: linear-gradient(135deg, rgba(94,160,160,0.8), rgba(77,69,169,0.55)),
-              url("/assets/profile.jpg") center/cover no-repeat;
+              url("/assets/profile.png") center/cover no-repeat;
   display: flex;
   align-items: center;
   color: #fff;
