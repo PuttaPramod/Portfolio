@@ -65,7 +65,7 @@
 }
 
 .badge-pill {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif !important;
   display: inline-block;
   background-color: #e0e7ff;
   color: #1ee775;
@@ -283,7 +283,7 @@
 }
 
 .mainhead{
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif !important;
   font-size:x-large;
   color: #667eea;
   font-weight: 600;
