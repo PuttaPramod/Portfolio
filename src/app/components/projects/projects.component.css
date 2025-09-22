@@ -65,15 +65,16 @@
 }
 
 .badge-pill {
+  font-family: 'Times New Roman', Times, serif;
   display: inline-block;
   background-color: #e0e7ff;
   color: #1ee775;
   padding: 6px 18px;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 1.5px;
   border-radius: 20px;
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
 }
 
@@ -221,14 +222,7 @@
   padding: 40px;
 }
 
-.project-category {
-  color: #667eea;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-}
+
 
 .project-title {
   font-size: 2rem;
@@ -278,11 +272,6 @@
 }
 
 
-.text-gradient {
-  background: linear-gradient(to right, #d81157, #6d0ee1, #d8c00b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 /* Enhanced Lightbox */
 .lightbox-modal {
   position: fixed;
@@ -291,6 +280,16 @@
   display: flex; align-items: center; justify-content: center;
   z-index: 1000;
   animation: fadeIn 0.4s ease;
+}
+
+.mainhead{
+  font-family: 'Times New Roman', Times, serif;
+  font-size:x-large;
+  color: #667eea;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
 .lightbox-content {

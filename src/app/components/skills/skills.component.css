@@ -60,9 +60,5 @@
 }
 
 /* Gradient Text */
-.text-gradient {
-  background: linear-gradient(to right, #d81157, #6d0ee1, #d8c00b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+
  

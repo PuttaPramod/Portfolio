@@ -12,6 +12,14 @@ html {
   scroll-behavior: smooth;
 }
 
+.inform{
+  font-style: italic !important;
+  color: #e96a10;
+}
+
+.subinfo{
+  font-family:cursive !important;
+}
 
 /* Typography */
 body {
@@ -21,10 +29,22 @@ body {
   background: linear-gradient(135deg, rgba(110, 169, 169, 0.893), rgba(77, 69, 169, 0.482));
 }
 
+.subsub{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
 h1, h2, h3, h4 {
   margin: 0 0 0.5rem;
   font-weight: 500;
   color: var(--primary-color);
+}
+
+.butt{
+  font-family:'Courier New', Courier, monospace !important;
+}
+
+.all{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
 /* Utility */
@@ -33,6 +53,13 @@ h1, h2, h3, h4 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 0;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #d81157, #6d0ee1, #d8c00b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 a {
