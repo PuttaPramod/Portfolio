@@ -308,8 +308,8 @@
 /* Close button visually distinct and accessible */
 .lightbox-close {
   position: absolute;
-  top: -50px; 
-  right: 0;
+  top: 300px; 
+  right: -130px;
   background: #ff4757; 
   color: white;
   border: none; 
@@ -326,13 +326,13 @@
   justify-content: center;
   pointer-events: auto;
   z-index: 1100;
-  transition: background-color 0.3s ease;
 }
 
 .lightbox-close:hover,
 .lightbox-close:focus {
   background: #e84118;
   outline: none;
+  cursor: pointer;
 }
 
 /* Animations for lightbox */
