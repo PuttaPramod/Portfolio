@@ -1,27 +1,57 @@
-.glass-link {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 0.4rem 1rem !important;
+/* ----- Navbar Styling ----- */
+.custom-navbar {
+  top:25px;
   transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  z-index: 1000;
 }
 
-a{
+/* Glass background (only around content) */
+.glass-bg {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 30px !important;
+  border: 1px solid none;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+/* Navbar link styles */
+.nav-link {
+  position: relative;
+  font-size: larger;
+  font-weight: bolder;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #003cff !important;
+  transform: scale(1.1);
   text-decoration: none;
 }
-/* Hover effect */
-.glass-link:hover {
-  background: rgba(0, 255, 200, 0.15);
-  color: #110ae2 !important;
-  border-color: rgba(0,255,200,0.5);
+
+/* Underline animation */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: linear-gradient(90deg, #28a745, #00ffcc);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
 }
 
-/* Brand gradient shine */
+.nav-link:hover::after {
+  width: 80%;
+}
+
+/* Logo glow effect */
 .logo-shine {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  font-size: 2.2rem !important;
   border-radius: 15px;
   padding: 0.4rem 1rem;
   font-family: 'Times New Roman', Times, serif;
@@ -30,16 +60,26 @@ a{
   -webkit-text-fill-color: transparent;
   animation: shine 3s linear infinite;
 }
-@keyframes shine {
-  0% { background-position: -200px 0; }
-  100% { background-position: 200px 0; }
+.logo-shine:hover {
+  text-shadow: 0 0 20px rgba(0, 255, 180, 0.9);
 }
 
-/* Responsive tweaks */
-@media (max-width: 991px) {
-  .glass-link {
-    display: block;
-    text-align: center;
-    margin: 0.4rem auto;
+/* Sticky navbar background change on scroll */
+.custom-navbar.scrolled .glass-bg {
+  background: rgba(30, 30, 30, 0.6);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .glass-bg {
+    border-radius: 1rem;
+    width: 95%;
+  }
+  .navbar-brand{
+    font-size: 2rem !important;
+  }
+  .nav-link {
+    font-size: 1.3rem;
   }
 }
