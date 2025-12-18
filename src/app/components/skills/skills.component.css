@@ -58,7 +58,20 @@
   background: linear-gradient(90deg, #ffde57, #ffd600);
   box-shadow: 0 0 15px rgba(255, 222, 87, 0.7);
 }
+.skill-icon.javascript,.progress-bar.javascript {
+  background: linear-gradient(90deg, #f7df1e, #ffe564);
+  box-shadow: 0 0 15px rgba(247, 223, 30, 0.7);
+  color: #000;
+}
+.skill-icon.mongodb, .progress-bar.mongodb {
+  background: linear-gradient(90deg, #47a248, #6fdc8c);
+  box-shadow: 0 0 15px rgba(71, 162, 72, 0.7);
+}
+.skill-icon.bootstrap,.progress-bar.bootstrap {
+  background: linear-gradient(90deg, #7952b3, #9f7aea);
+  box-shadow: 0 0 15px rgba(121, 82, 179, 0.7);
+}
+
 
 /* Gradient Text */
 
- 

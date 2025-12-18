@@ -20,9 +20,12 @@ skills: Skill[] = [
     { name: 'HTML', level: 90, animatedLevel: 0, leftIcon: 'fab fa-html5' },
     { name: 'CSS', level: 85, animatedLevel: 0, leftIcon: 'fab fa-css3-alt' },
     { name: 'Python', level: 83, animatedLevel: 0, leftIcon: 'fab fa-python' },
+    { name: 'MongoDB', level: 80, animatedLevel: 0, leftIcon: 'fas fa-database' },
+    { name: 'JavaScript', level: 70, animatedLevel: 0, leftIcon: 'fab fa-js' },
     { name: 'TypeScript', level: 80, animatedLevel: 0, leftIcon: 'fab fa-js' },
     { name: 'Angular', level: 75, animatedLevel: 0, leftIcon: 'fab fa-angular' },
     { name: 'Node.js', level: 70, animatedLevel: 0, leftIcon: 'fab fa-node' },
+    { name: 'Bootstrap', level: 90, animatedLevel: 0, leftIcon: 'fab fa-bootstrap' },
   ];
 
   constructor(private el: ElementRef) {}

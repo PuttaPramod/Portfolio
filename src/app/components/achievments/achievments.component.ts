@@ -21,6 +21,9 @@ export class AchievmentsComponent implements OnInit {
     { title: 'Angular Developer', issuer: 'Infosys SpringBoard', date: 'Jun 2025', img: 'assets/Angular.png' },
     { title: 'Introduction to IoT(NPTEL)', issuer: 'Skill India', date: 'Oct 2024', img: 'assets/IoT.png' },
     { title: 'Code Sankalp', issuer: 'NRIIT', date: 'Jan 2025', img: 'assets/code.png' },
+    { title: 'JavaScript(Intermediate)', issuer: 'HakerRank', date: 'Dec 2025', img: 'assets/JavaScript HR.png' },
+    { title: 'AgenticForce Specialist', issuer: 'SalesForce', date: 'Dec 2025', img: 'assets/AgentForce Specialist Certificate.png' },
+    { title: 'Python(Basic)', issuer: 'HackerRank', date: 'Dec 2025', img: 'assets/Python HR.png' },
   ];
 animationStates: any;
 

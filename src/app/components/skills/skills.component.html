@@ -6,7 +6,7 @@
   <div class="row g-4">
     <div class="col-md-4" *ngFor="let skill of skills">
       <div class="skill-card p-4 text-center shadow-lg rounded-4" data-aos="zoom-in">
-        
+
         <!-- Icon -->
         <div class="skill-icon mb-3" [ngClass]="skill.name.toLowerCase().replace('.', '').replace(' ', '-')">
           <i [class]="skill.leftIcon"></i>
