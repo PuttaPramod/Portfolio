@@ -8,8 +8,8 @@ import AOS from 'aos';
 @Component({
   selector: 'app-contact',
   imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule],
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  templateUrl: './contact.html',
+  styleUrls: ['./contact.css']
 })
 export class ContactComponent {
   contactForm: FormGroup;

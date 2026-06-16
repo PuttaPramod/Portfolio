@@ -12,8 +12,8 @@ interface Skill {
 @Component({
   selector: 'app-skills',
   imports: [CommonModule,FormsModule],
-  templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.css']
+  templateUrl: './skills.html',
+  styleUrls: ['./skills.css']
 })
 export class SkillsComponent implements AfterViewInit {
 skills: Skill[] = [

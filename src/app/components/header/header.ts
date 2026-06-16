@@ -5,8 +5,8 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-header',
   imports: [RouterModule,CommonModule],
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  templateUrl: './header.html',
+  styleUrls: ['./header.css']
 })
 export class HeaderComponent {
   isScrolled = false;

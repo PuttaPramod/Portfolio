@@ -3,8 +3,8 @@ import * as AOS from 'aos';
 
 @Component({
   selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  templateUrl: './footer.html',
+  styleUrls: ['./footer.css']
 })
 export class FooterComponent implements OnInit {
   showButton = false;

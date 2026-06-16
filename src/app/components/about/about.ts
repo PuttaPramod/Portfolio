@@ -3,8 +3,8 @@ import AOS from 'aos';
 
 @Component({
   selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  templateUrl: './about.html',
+  styleUrls: ['./about.css']
 })
 export class AboutComponent implements OnInit {
 constructor(private el: ElementRef) {}

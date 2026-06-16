@@ -13,8 +13,8 @@ interface Certificate {
 @Component({
   selector: 'app-achievments',
   imports:[CommonModule,FormsModule],
-  templateUrl: './achievments.component.html',
-  styleUrls: ['./achievments.component.css']
+  templateUrl: './achievments.html',
+  styleUrls: ['./achievments.css']
 })
 export class AchievmentsComponent implements OnInit {
   certificates = [

@@ -7,8 +7,8 @@ import { RouterModule } from '@angular/router';
   selector: 'app-projects',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  templateUrl: './projects.html',
+  styleUrls: ['./projects.css']
 })
 export class ProjectsComponent implements OnInit {
   lightboxOpen = false;

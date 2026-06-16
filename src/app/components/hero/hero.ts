@@ -4,8 +4,8 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-hero',
   imports: [RouterModule],
-  templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.css']
+  templateUrl: './hero.html',
+  styleUrls: ['./hero.css']
 })
 export class HeroComponent {
   
