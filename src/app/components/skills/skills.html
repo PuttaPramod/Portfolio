@@ -1,36 +1,20 @@
-<section id="skills" class="skills container py-5">
-  <h2 class="mb-5 text-center display-4 fw-bold text-gradient">
-    <b id="none">✨</b> My Skills & Technologies
-  </h2>
+<section class="skills-section" id="skills">
+  <div class="skills-container">
+    <div class="section-heading">
+      <span class="badge-pill">My toolkit</span>
+      <h2 class="mb-5 text-center display-4 fw-bold text-gradient">Skills</h2>
+      <p>Technologies I use to build fast, responsive, and polished web experiences.</p>
+    </div>
 
-  <div class="row g-4">
-    <div class="col-md-4" *ngFor="let skill of skills">
-      <div class="skill-card p-4 text-center shadow-lg rounded-4" data-aos="zoom-in">
-
-        <!-- Icon -->
-        <div class="skill-icon mb-3" [ngClass]="skill.name.toLowerCase().replace('.', '').replace(' ', '-')">
-          <i [class]="skill.leftIcon"></i>
+    <div class="skills-grid">
+      @for (skill of skills; track skill.name) {
+        <div class="skill-card">
+          <div class="skill-icon-box" [style.background]="skill.color">
+            <i [class]="skill.icon"></i>
+          </div>
+          <span class="skill-name">{{ skill.name }}</span>
         </div>
-
-        <!-- Skill Name -->
-        <h5 class="fw-bold subsub">{{ skill.name }}</h5>
-
-        <!-- Progress Bar -->
-        <div class="progress w-100 mb-2" style="height: 10px; border-radius: 50px;">
-          <div
-            class="progress-bar"
-            role="progressbar"
-            [style.width.%]="skill.animatedLevel"
-            [attr.aria-valuenow]="skill.animatedLevel"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            [ngClass]="skill.name.toLowerCase().replace('.', '').replace(' ', '-')"
-          ></div>
-        </div>
-
-        <!-- Percentage -->
-        <span class="fw-bold text-gradient subinfo">{{ skill.animatedLevel }}%</span>
-      </div>
+      }
     </div>
   </div>
 </section>

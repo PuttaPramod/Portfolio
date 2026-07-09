@@ -1,67 +1,31 @@
-import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
 
-interface Skill {
+type Skill = {
   name: string;
-  level: number;
-  leftIcon: string;
-  animatedLevel: number; // 👈 must be here
-}
+  color: string;
+  icon: string;
+};
 
 @Component({
   selector: 'app-skills',
-  imports: [CommonModule,FormsModule],
+  standalone: true,
+  imports: [],
   templateUrl: './skills.html',
-  styleUrls: ['./skills.css']
+  styleUrl: './skills.css'
 })
-export class SkillsComponent implements AfterViewInit {
-skills: Skill[] = [
-    { name: 'HTML', level: 90, animatedLevel: 0, leftIcon: 'fab fa-html5' },
-    { name: 'CSS', level: 85, animatedLevel: 0, leftIcon: 'fab fa-css3-alt' },
-    { name: 'Python', level: 83, animatedLevel: 0, leftIcon: 'fab fa-python' },
-    { name: 'MongoDB', level: 80, animatedLevel: 0, leftIcon: 'fas fa-database' },
-    { name: 'JavaScript', level: 70, animatedLevel: 0, leftIcon: 'fab fa-js' },
-    { name: 'TypeScript', level: 80, animatedLevel: 0, leftIcon: 'fab fa-js' },
-    { name: 'Angular', level: 75, animatedLevel: 0, leftIcon: 'fab fa-angular' },
-    { name: 'Node.js', level: 70, animatedLevel: 0, leftIcon: 'fab fa-node' },
-    { name: 'Bootstrap', level: 90, animatedLevel: 0, leftIcon: 'fab fa-bootstrap' },
+export class Skills {
+  skills: Skill[] = [
+    { name: 'Python', color: '#3776ab', icon: 'fab fa-python' },
+    { name: 'HTML', color: '#f97316', icon: 'fab fa-html5' },
+    { name: 'CSS', color: '#2563eb', icon: 'fab fa-css3-alt' },
+    { name: 'JavaScript', color: '#eab308', icon: 'fab fa-js-square' },
+    { name: 'Angular', color: '#dd0031', icon: 'fab fa-angular' },
+    { name: 'React', color: '#06b6d4', icon: 'fab fa-react' },
+    { name: 'TypeScript', color: '#3178c6', icon: 'fab fa-js' },
+    { name: 'MongoDB', color: '#47a248', icon: 'fas fa-database' },
+    { name: 'GitHub', color: '#f1502f', icon: 'fab fa-github' },
+    { name: 'Node.js', color: '#3c873a', icon: 'fab fa-node' },
+    { name: 'Bootstrap', color: '#7952b3', icon: 'fab fa-bootstrap' },
+    { name: 'Tailwind CSS', color: '#38bdf8', icon: 'fas fa-wind' },
   ];
-
-  constructor(private el: ElementRef) {}
-
-  ngAfterViewInit(): void {
-    const skillCards = this.el.nativeElement.querySelectorAll('.skill-card');
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Array.from(skillCards).indexOf(entry.target);
-            if (index !== -1) {
-              this.animateSkill(index); // ✅ pass index
-            }
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.4 }
-    );
-
-    skillCards.forEach((card: any) => observer.observe(card));
-  }
-
-  animateSkill(index: number) {
-    let current = 0;
-    const target = this.skills[index].level;
-
-    const interval = setInterval(() => {
-      if (current >= target) {
-        clearInterval(interval);
-      } else {
-        current++;
-        this.skills[index].animatedLevel = current;
-      }
-    }, 15);
-  }
 }
