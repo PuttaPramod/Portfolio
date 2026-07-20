@@ -7,10 +7,47 @@
   margin: 0 auto;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .section-heading {
   max-width: 700px;
   margin: 0 auto 48px;
   text-align: center;
+}
+
+.skills-section.animate .section-heading {
+  animation: slideInDown 0.8s ease-out;
 }
 
 .badge-pill {
@@ -25,6 +62,10 @@
   text-transform: uppercase;
   font-size: 1.8rem;
   margin-bottom: 1rem;
+}
+
+.skills-section.animate .badge-pill {
+  animation: slideInDown 0.8s ease-out 0.1s both;
 }
 
 .section-kicker {
@@ -60,6 +101,10 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
+.skills-section.animate .section-heading p {
+  animation: slideInDown 0.8s ease-out 0.3s both;
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -68,6 +113,10 @@
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.skills-section.animate .skills-grid {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .skill-card {
@@ -82,6 +131,23 @@
   transition: all 0.3s ease;
   cursor: pointer;
 }
+
+.skills-section.animate .skill-card {
+  animation: scaleIn 0.5s ease-out both;
+}
+
+.skills-section.animate .skill-card:nth-child(1) { animation-delay: 0.05s; }
+.skills-section.animate .skill-card:nth-child(2) { animation-delay: 0.1s; }
+.skills-section.animate .skill-card:nth-child(3) { animation-delay: 0.15s; }
+.skills-section.animate .skill-card:nth-child(4) { animation-delay: 0.2s; }
+.skills-section.animate .skill-card:nth-child(5) { animation-delay: 0.25s; }
+.skills-section.animate .skill-card:nth-child(6) { animation-delay: 0.3s; }
+.skills-section.animate .skill-card:nth-child(7) { animation-delay: 0.35s; }
+.skills-section.animate .skill-card:nth-child(8) { animation-delay: 0.4s; }
+.skills-section.animate .skill-card:nth-child(9) { animation-delay: 0.45s; }
+.skills-section.animate .skill-card:nth-child(10) { animation-delay: 0.5s; }
+.skills-section.animate .skill-card:nth-child(11) { animation-delay: 0.55s; }
+.skills-section.animate .skill-card:nth-child(12) { animation-delay: 0.6s; }
 
 .skill-icon-box {
   width: 70px;

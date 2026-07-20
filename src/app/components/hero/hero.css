@@ -48,10 +48,9 @@ a{
   line-height: 1.2;
 }
 .typewriter-text {
-  background: rgba(255, 255, 255, 0.08);
   padding: 0.4rem 1rem;
   font-family: 'Times New Roman', Times, serif !important;
-  background: linear-gradient(90deg,#f00356, #7001f7, #f0d505);
+  background: #FFFFFF;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 3s linear infinite;
@@ -60,6 +59,10 @@ a{
   overflow: hidden;
   white-space: nowrap;
   animation: typing 3s steps(30) infinite alternate, blink 0.7s infinite;
+}
+
+.sirname{
+  color:#38BDF8 !important;
 }
 
 /* Subtitle */

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, ElementRef, ChangeDetectorRef, NgZone } from '@angular/core';
 
 type Skill = {
   name: string;
@@ -13,7 +13,10 @@ type Skill = {
   templateUrl: './skills.html',
   styleUrl: './skills.css'
 })
-export class Skills {
+export class Skills implements AfterViewInit {
+  @ViewChild('skillsSection') skillsSection!: ElementRef;
+  isVisible = false;
+
   skills: Skill[] = [
     { name: 'Python', color: '#3776ab', icon: 'fab fa-python' },
     { name: 'HTML', color: '#f97316', icon: 'fab fa-html5' },
@@ -28,4 +31,27 @@ export class Skills {
     { name: 'Bootstrap', color: '#7952b3', icon: 'fab fa-bootstrap' },
     { name: 'Tailwind CSS', color: '#38bdf8', icon: 'fas fa-wind' },
   ];
+
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private ngZone: NgZone
+  ) {}
+
+  ngAfterViewInit() {
+    this.ngZone.runOutsideAngular(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            this.ngZone.run(() => {
+              this.isVisible = true;
+              this.cdr.markForCheck();
+            });
+            observer.unobserve(entry.target);
+          }
+        },
+        { threshold: 0.1 }
+      );
+      observer.observe(this.skillsSection.nativeElement);
+    });
+  }
 }

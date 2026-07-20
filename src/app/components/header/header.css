@@ -31,19 +31,6 @@
   text-decoration: none;
 }
 
-/* Underline animation */
-.nav-link::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: 0;
-  left: 50%;
-  background: linear-gradient(90deg, #28a745, #00ffcc);
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
-  border-radius: 2px;
-}
 
 .nav-link:hover::after {
   width: 80%;
@@ -56,14 +43,12 @@
   border-radius: 15px;
   padding: 0.4rem 1rem;
   font-family: 'Times New Roman', Times, serif;
-  background: linear-gradient(90deg,#d81157, #6d0ee1, #d8c00b);
+  background: #0F172A;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 3s linear infinite;
 }
-.logo-shine:hover {
-  text-shadow: 0 0 20px rgba(0, 255, 180, 0.9);
-}
+
 
 /* Sticky navbar background change on scroll */
 .custom-navbar.scrolled .glass-bg {

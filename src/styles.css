@@ -55,7 +55,7 @@ h1, h2, h3, h4 {
 }
 
 .text-gradient {
-  background: linear-gradient(to right, #d81157, #6d0ee1, #d8c00b);
+  background: #1E293B;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
