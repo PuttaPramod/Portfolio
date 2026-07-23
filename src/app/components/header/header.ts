@@ -1,18 +1,50 @@
-import { Component,HostListener } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterModule,CommonModule],
+  standalone: true,
   templateUrl: './header.html',
-  styleUrls: ['./header.css']
+  styleUrl: './header.css'
 })
 export class HeaderComponent {
-  isScrolled = false;
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.isScrolled = window.scrollY > 50;
+  isScrolled = false;
+  mobileMenu = false;
+  activeSection = 'hero';
+
+  @HostListener('window:scroll')
+  onScroll() {
+
+    this.isScrolled = window.scrollY > 30;
+
+    const sections = [
+      'hero',
+      'about',
+      'skills',
+      'projects',
+      'experience',
+      'contact'
+    ];
+
+    for (const id of sections) {
+      const section = document.getElementById(id);
+
+      if (section) {
+        const top = section.offsetTop - 120;
+        const bottom = top + section.offsetHeight;
+
+        if (window.scrollY >= top && window.scrollY < bottom) {
+          this.activeSection = id;
+        }
+      }
+    }
+  }
+
+  toggleMenu() {
+    this.mobileMenu = !this.mobileMenu;
+  }
+
+  closeMenu() {
+    this.mobileMenu = false;
   }
 }

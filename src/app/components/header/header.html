@@ -1,31 +1,117 @@
-<!-- ===== Navbar ===== -->
-<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
-  <div class="container glass-bg rounded-pill px-4 py-2">
-    <!-- Brand -->
-    <a class="navbar-brand logo-shine fw-bold fs-2 text-success" href="#">PRAMOD</a>
+<nav class="header" [class.scrolled]="isScrolled">
 
-    <!-- Toggle Button -->
-    <button 
-      class="navbar-toggler border-0 shadow-none text-success" 
-      type="button" 
-      data-bs-toggle="collapse" 
-      data-bs-target="#navMenu" 
-      aria-controls="navMenu" 
-      aria-expanded="false" 
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="nav-wrapper">
 
-    <!-- Menu -->
-    <div class="collapse navbar-collapse justify-content-center" id="navMenu">
-      <ul class="navbar-nav gap-3 fw-semibold fs-6 text-center">
-        <li class="nav-item"><a class="nav-link glass-link text-dark" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link glass-link text-dark" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link glass-link text-dark" href="#experience">Experience</a></li>
-        <li class="nav-item"><a class="nav-link glass-link text-dark" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link glass-link text-dark" href="#contact">Contact</a></li>
-        <li class="nav-item"><a class="nav-link glass-link text-dark" href="#achievments">Achievements</a></li>
-      </ul>
+        <!-- Logo -->
+
+        <a href="#hero" class="logo">
+
+            <div class="logo-circle">
+                PK 
+            </div>
+            <span class="name">Pramod Kumar</span>
+
+        </a>
+
+        <!-- Desktop Menu -->
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#hero" class="active">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="#about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="#skills">
+                    Skills
+                </a>
+            </li>
+            <li>
+                <a href="#experience">
+                    Experience
+                </a>
+            </li>
+
+            <li>
+                <a href="#projects">
+                    Projects
+                </a>
+            </li>
+
+            
+
+            <li>
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+        <!-- Resume Button -->
+
+        <a href="assets/Pramod Resume.pdf" download class="resume-btn">
+
+            Download Resume
+
+            <i class="bi bi-arrow-up-right"></i>
+
+        </a>
+
+        <!-- Mobile Toggle -->
+
+        <button class="menu-btn" (click)="toggleMenu()">
+
+            <i class="bi" [class.bi-list]="!mobileMenu" [class.bi-x-lg]="mobileMenu">
+            </i>
+
+        </button>
+
     </div>
-  </div>
+
+    <!-- Mobile Menu -->
+
+    <div class="mobile-menu" [class.show]="mobileMenu">
+
+
+        <a href="#hero" (click)="closeMenu()">
+            Home
+        </a>
+
+        <a href="#about" (click)="closeMenu()">
+            About
+        </a>
+
+        <a href="#skills" (click)="closeMenu()">
+            Skills
+        </a>
+
+        <a href="#projects" (click)="closeMenu()">
+            Projects
+        </a>
+
+        <a href="#experience" (click)="closeMenu()">
+            Experience
+        </a>
+
+        <a href="#contact" (click)="closeMenu()">
+            Contact
+        </a>
+
+        <a href="assets/resume.pdf" class="resume-mobile" download>
+
+            Download Resume
+
+        </a>
+
+    </div>
+
 </nav>

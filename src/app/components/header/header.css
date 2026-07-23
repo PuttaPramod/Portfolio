@@ -1,71 +1,781 @@
-/* ----- Navbar Styling ----- */
-.custom-navbar {
-  top:25px;
-  transition: all 0.3s ease;
-  padding: 0.5rem 0;
-  z-index: 1000;
+/* ===========================
+   Google Font
+=========================== */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+/* ===========================
+   Variables
+=========================== */
+
+:root{
+
+    --bg:#09090B;
+    --glass:rgba(255,255,255,.06);
+    --border:rgba(255,255,255,.10);
+
+    --primary:#7C3AED;
+    --secondary:#2563EB;
+
+    --text:#fff;
+    --text-light:#cfcfcf;
+
 }
 
-/* Glass background (only around content) */
-.glass-bg {
-  max-width: 1000px;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-  border-radius: 30px !important;
-  border: 1px solid none;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s ease;
+/* ===========================
+   Header
+=========================== */
+
+.header{
+
+    position:fixed;
+
+    top:22px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:90%;
+    max-width:1200px;
+
+    z-index:999;
+
+    transition:.45s ease;
+
+}
+.name{
+    display:none;
 }
 
-/* Navbar link styles */
-.nav-link {
-  position: relative;
-  font-size: larger;
-  font-weight: bolder;
-  transition: color 0.3s ease, transform 0.3s ease;
+.header.scrolled{
+
+    top:14px;
+
 }
 
-.nav-link:hover {
-  color: #003cff !important;
-  transform: scale(1.1);
-  text-decoration: none;
+/* ===========================
+   Glass Container
+=========================== */
+
+.nav-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:14px 22px;
+
+    border-radius:80px;
+
+    backdrop-filter:blur(22px);
+
+    background:rgba(20,20,25,.45);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+
+    0 15px 45px rgba(0,0,0,.35),
+
+    inset 0 0 0 rgba(255,255,255,.05);
+
+    transition:.45s;
+
 }
 
+.header.scrolled .nav-wrapper{
 
-.nav-link:hover::after {
-  width: 80%;
+    padding:11px 22px;
+
+
+
 }
 
-/* Logo glow effect */
-.logo-shine {
-  -webkit-backdrop-filter: blur(10px);
-  font-size: 2.2rem !important;
-  border-radius: 15px;
-  padding: 0.4rem 1rem;
-  font-family: 'Times New Roman', Times, serif;
-  background: #0F172A;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 3s linear infinite;
+/* ===========================
+Logo
+=========================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    text-decoration:none;
+
 }
 
+.logo-circle{
 
-/* Sticky navbar background change on scroll */
-.custom-navbar.scrolled .glass-bg {
-  background: rgba(30, 30, 30, 0.6);
-  border-color: rgba(255, 255, 255, 0.15);
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    font-weight:700;
+
+    background:
+
+    linear-gradient(135deg,rgb(69, 69, 199),rgb(102, 45, 143));
+
+    box-shadow:
+
+    0 0 25px rgba(124,58,237,.6);
+
+    transition:.35s;
+
 }
 
-/* Responsive styles */
-@media (max-width: 992px) {
-  .glass-bg {
-    border-radius: 1rem;
-    width: 95%;
-  }
-  .navbar-brand{
-    font-size: 2rem !important;
-  }
-  .nav-link {
-    font-size: 1.3rem;
-  }
+.logo:hover .logo-circle{
+
+    transform:rotate(10deg) scale(1.08);
+
+}
+
+.logo-text{
+
+    font-size:20px;
+
+    color:white;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+/* ===========================
+Menu
+=========================== */
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:36px;
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+.nav-links a{
+
+
+    text-decoration:none;
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    position:relative;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:white;
+
+}
+
+/* Underline */
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-8px;
+
+    transform:translateX(-50%);
+
+    width:0;
+
+    height:2px;
+
+    border-radius:50px;
+
+    transition:.35s;
+
+    background:
+
+    linear-gradient(90deg,
+    var(--primary),
+    var(--secondary));
+
+}
+
+.nav-links a:hover::after,
+
+.nav-links a.active::after{
+
+    width:100%;
+
+}
+
+.nav-links a.active{
+
+
+}
+
+/* ===========================
+Resume Button
+=========================== */
+
+.resume-btn{
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:12px 24px;
+
+    border-radius:40px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-weight:600;
+
+    background:
+
+    linear-gradient(135deg,rgb(69, 69, 199),rgb(102, 45, 143));
+
+    transition:.35s;
+
+    box-shadow:
+
+    0 0 25px rgba(124,58,237,.35);
+
+}
+
+.resume-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+    0 0 40px rgba(124,58,237,.65);
+
+}
+
+.resume-btn i{
+
+    transition:.3s;
+
+}
+
+.resume-btn:hover i{
+
+    transform:rotate(45deg);
+
+}
+
+/* ===========================
+Mobile Button
+=========================== */
+
+.menu-btn{
+
+    display:none;
+
+    border:none;
+
+    background:none;
+
+    color:white;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+}
+
+/* ===========================
+Mobile Menu
+=========================== */
+
+.mobile-menu{
+
+    display:none;
+
+}
+
+/* ===========================
+Responsive
+=========================== */
+
+@media(max-width:991px){
+
+.menu-btn{
+
+display:block;
+
+}
+
+.logo-text{
+
+display:none;
+
+}
+
+.nav-links{
+
+display:none;
+
+}
+
+.resume-btn{
+
+display:none;
+
+}
+
+.mobile-menu{
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+margin-top:16px;
+
+padding:24px;
+
+border-radius:24px;
+
+background:rgba(34, 34, 35, 0.505);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.08);
+
+max-height:0;
+
+overflow:hidden;
+
+opacity:0;
+
+transition:.4s;
+
+pointer-events:none;
+
+}
+
+.mobile-menu.show{
+
+max-height:600px;
+
+opacity:1;
+
+pointer-events:auto;
+
+}
+
+.mobile-menu a{
+    text-align:center;
+    background:linear-gradient(
+        135deg,rgb(57, 125, 124),rgb(37, 107, 146));
+
+    border-radius:20px;
+
+color:white;
+
+text-decoration:none;
+
+font-size:17px;
+
+font-weight:500;
+
+}
+
+.resume-mobile{
+
+margin-top:10px;
+
+background:linear-gradient(
+135deg,rgb(69, 69, 199),rgb(102, 45, 143)) !important;
+
+padding:14px;
+
+text-align:center;
+
+border-radius:14px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.header{
+
+width:95%;
+
+}
+
+.nav-wrapper{
+
+padding:12px 18px;
+
+}
+
+.logo-circle{
+
+width:42px;
+
+height:42px;
+
+font-size:14px;
+
+}
+
+}
+
+/* ==========================================
+   Smooth Page Scroll
+========================================== */
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* ==========================================
+   Animated Border
+========================================== */
+
+.nav-wrapper{
+    position:relative;
+    overflow:hidden;
+}
+
+.nav-wrapper::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-1px;
+
+    border-radius:80px;
+
+    padding:1px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(124,58,237,.9),
+        rgba(37,99,235,.9),
+        transparent
+    );
+
+    background-size:300% 100%;
+
+    animation:borderMove 8s linear infinite;
+
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+            mask-composite:exclude;
+
+    pointer-events:none;
+
+}
+
+@keyframes borderMove{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    100%{
+        background-position:300% 50%;
+    }
+
+}
+
+/* ==========================================
+   Navbar Entrance
+========================================== */
+
+.header{
+
+    animation:navbarAppear 1s ease;
+
+}
+
+@keyframes navbarAppear{
+
+    from{
+
+        opacity:0;
+        transform:translate(-50%,-60px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translate(-50%,0);
+
+    }
+
+}
+
+/* ==========================================
+   Logo Glow
+========================================== */
+
+
+@keyframes logoFloat{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-4px);
+
+    }
+
+}
+
+/* ==========================================
+   Navigation Hover
+========================================== */
+
+.nav-links li{
+
+    position:relative;
+
+}
+
+.nav-links a{
+
+    padding:6px 0;
+
+}
+
+.nav-links a:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   Resume Shine Effect
+========================================== */
+
+.resume-btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.resume-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-120%;
+
+    top:0;
+
+    width:60%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+    );
+
+    transform:skewX(-20deg);
+
+}
+
+.resume-btn:hover::before{
+
+    animation:shine .8s linear;
+
+}
+
+@keyframes shine{
+
+    to{
+
+        left:150%;
+
+    }
+
+}
+
+/* ==========================================
+   Hover Glow
+========================================== */
+
+.nav-links a:hover{
+
+    text-shadow:
+    0 0 10px rgba(124,58,237,.6);
+
+}
+
+/* ==========================================
+   Mobile Animation
+========================================== */
+
+.mobile-menu{
+
+    transform:translateY(-20px);
+
+}
+
+.mobile-menu.show{
+
+    transform:translateY(0);
+
+}
+
+/* ==========================================
+   Scroll Shrink
+========================================== */
+
+.header.scrolled .logo-circle{
+
+    width:42px;
+
+    height:42px;
+
+    font-size:14px;
+
+}
+
+.header.scrolled .resume-btn{
+
+    padding:10px 22px;
+
+}
+
+/* ==========================================
+   Glass Hover
+========================================== */
+
+.nav-wrapper:hover{
+
+    box-shadow:
+
+    0 25px 60px rgba(0,0,0,.45),
+
+    0 0 40px rgba(124,58,237,.15);
+
+}
+
+/* ==========================================
+   Active Link Glow
+========================================== */
+
+.nav-links a.active{
+
+
+    text-shadow:
+
+    0 0 15px rgba(124,58,237,.7);
+
+}
+
+/* ==========================================
+   Small Screen Fixes
+========================================== */
+
+@media(max-width:991px){
+    .name{
+        display: block;
+        font-size: 22px;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+    }
+
+.mobile-menu{
+
+    transition:
+    opacity .35s,
+    transform .35s,
+    max-height .35s;
+
+}
+
+.mobile-menu a{
+
+    padding:8px 0;
+
+    transition:.3s;
+
+}
+
+.mobile-menu a:hover{
+
+    color:#9F7AEA;
+
+    padding-left:10px;
+
+}
+
+}
+
+/* ==========================================
+   Reduce Motion Accessibility
+========================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+*{
+
+animation:none!important;
+
+transition:none!important;
+
+scroll-behavior:auto!important;
+
+}
+
 }
